@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.scss";
 import { Providers } from "./_providers/app-provider";
 import { SITE_NAME } from "@/shared/data/seo.data";
 
-const inter = Inter({ subsets: ["latin", "cyrillic"], variable: '--inter-font'});
+const inter = Montserrat({ subsets: ["latin", "cyrillic"], variable: '--montserrat-font'});
 
 export const metadata: Metadata = {
 	title: {

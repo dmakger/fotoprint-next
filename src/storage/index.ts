@@ -1,7 +1,8 @@
+import { ProductAPI } from "@/entities/Product/api/product.api";
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
-
+    [ProductAPI.reducerPath]: ProductAPI.reducer,
 })
 
 export const setupStore = () => {
@@ -11,7 +12,7 @@ export const setupStore = () => {
             getDefaultMiddleware({
                 serializableCheck: false
             }).concat(
-
+                ProductAPI.middleware,
             ),
     })
 }

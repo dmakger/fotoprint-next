@@ -16,25 +16,24 @@
   --gray-2: #E0E0E0;
   --gray-3: #828282;
 
-  --purple-1: #9239A8;
-  --purple-2: #7A5184;
-  --purple-3: #523659;
-  --purple-light: #E9D7EE;
+  --green-1: #1CAC59;
+  --green-2: #2ED573;
+  --green-3: #4CEA8F;
+  --green-light: #E9F8EE;
 
   // SPECIFY
   --foreground-1: var(--black);
   --foreground-2: var(--gray-3);
   --foreground-3: var(--white);
 
-  --background-1: var(--white-light);
+  --background-1: var(--gray-1);
   --background-2: var(--white);
   --background-3: var(--gray-2);
-  --background-4: var(--gray-1);
 
-  --primary: var(--purple-1);
-  --secondary: var(--purple-2);
-  --third: var(--purple-3);
-  --primary-light: var(--purple-light);
+  --primary: var(--green-1);
+  --secondary: var(--green-2);
+  --third: var(--green-3);
+  --primary-light: var(--green-light);
 
 
   // ===={ SIZES }====
@@ -77,6 +76,11 @@
     background-color: var(--background-2);
     border-radius: 4px;
   }
+
+  &::selection {
+    background: var(--green-1);
+    color: var(--background-2);
+  }
 }
 
 html,
@@ -100,7 +104,7 @@ body {
   background-color: var(--background-1);
   color: var(--foreground-1);
   font-weight: var(--fw-medium);
-  font-size: var(--fs-rg);
+  font-size: var(--fs-srg);
 }
 
 a {
