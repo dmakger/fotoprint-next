@@ -1,0 +1,13 @@
+.list {
+    gap: 10px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .title {
+        font-size: var(--fs-rg);
+    }
+}

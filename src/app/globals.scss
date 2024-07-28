@@ -30,7 +30,13 @@
   --background-2: var(--white);
   --background-3: var(--gray-2);
 
+  // primary
   --primary: var(--green-1);
+  --primary-hovered: var(--green-3);
+  --on-primary: var(--white);
+  --primary-surface: var(--green-light);
+  --primary-surface-sub: var(--green-light);
+
   --secondary: var(--green-2);
   --third: var(--green-3);
   --primary-light: var(--green-light);

@@ -20,12 +20,13 @@ export const ProductListContainer:FC<ProductListContainerProps> = ({...rest}) =>
     // STATE
     const [pageNumber, setPageNumber] = useState<number>(DefaultBackendParams.Page)
     const [limit, setLimit] = useState<number>(DefaultBackendParams.Limit)
+    const [search, setSearch] = useState<string | undefined>()
 
     // API
-    const {data: productQuery} = ProductAPI.useGetProductsQuery({limit, page: pageNumber} as IProductProps, {refetchOnMountOrArgChange: true})
+    const {data: productQuery} = ProductAPI.useGetProductsQuery({limit, page: pageNumber, q: search} as IProductProps, {refetchOnMountOrArgChange: true})
     
     return (
-        <SuspenseL.Query setPageNumber={setPageNumber} setLimit={setLimit}>
+        <SuspenseL.Query setPageNumber={setPageNumber} setLimit={setLimit} setSearch={setSearch}>
             {productQuery && (
                 <ProductList componentProps={{}} items={productQuery.results} {...rest} />
             )}

@@ -15,4 +15,14 @@ export interface ICharacteristic {
     title: string
     characteristicGroup: ICharacteristicGroup
     description?: string
+    isActive?: boolean
+}
+
+
+/**
+ * `Группа характеристик` к списку `Характеристик`
+ */
+export interface ICharacteristicGroupToCharacteristic {
+    characteristicGroup: ICharacteristicGroup
+    characteristics: ICharacteristic[]
 }

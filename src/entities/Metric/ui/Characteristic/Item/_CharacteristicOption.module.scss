@@ -1,0 +1,25 @@
+.block {
+    display: flex;
+    padding: 10px 20px;
+    border: 2px solid var(--gray-2);
+    border-radius: 10px;
+    transition: .2s;
+
+    &:hover {
+        border-color: var(--gray-3);
+    }
+
+    .title {
+        color: var(--foreground-1);
+        font-weight: var(--fw-bold);
+        font-size: var(--fs-srg);
+    }
+}
+
+.active {
+    border-color: var(--primary);
+
+    &:hover {
+        border-color: var(--primary);
+    }
+}

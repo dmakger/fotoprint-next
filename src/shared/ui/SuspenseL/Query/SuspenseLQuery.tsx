@@ -14,6 +14,10 @@ interface SuspenseLQueryProps {
     limit?: string
     setLimit: Dispatch<SetStateAction<number>>
     defaultLimit?: number
+
+    search?: string
+    setSearch: Dispatch<SetStateAction<string | undefined>>
+    defaultSearch?: string
     
     data?: ISuspenseLItem[]
     children: ReactNode
@@ -22,6 +26,7 @@ interface SuspenseLQueryProps {
 export const SuspenseLQuery:FC<SuspenseLQueryProps> = ({
     pageNumber=BACKEND_PARAMS.PAGE, setPageNumber, defaultPageNumber=DefaultBackendParams.Page,
     limit=BACKEND_PARAMS.LIMIT, setLimit, defaultLimit=DefaultBackendParams.Limit,
+    search=BACKEND_PARAMS.SEARCH, setSearch, defaultSearch,
     data, children
 }) => {
     // ROUTE
@@ -31,13 +36,20 @@ export const SuspenseLQuery:FC<SuspenseLQueryProps> = ({
     useEffect(() => {
         const value = searchParams.get(pageNumber) ?? defaultPageNumber
         setPageNumber(typeof value === "string" ? +value : value)
-    }, [pageNumber, setPageNumber, defaultPageNumber])
+    }, [searchParams, pageNumber, setPageNumber, defaultPageNumber])
 
     // LIMIT
     useEffect(() => {
         const value = searchParams.get(limit) ?? defaultLimit
         setLimit(typeof value === "string" ? +value : value)
-    }, [limit, setLimit, defaultLimit])
+    }, [searchParams, limit, setLimit, defaultLimit])
+
+    // SEARCH
+    useEffect(() => {
+        console.log('qwe searchParams', searchParams.get(search))
+        const value = searchParams.get(search) ?? defaultSearch
+        setSearch(value)
+    }, [searchParams, search, setSearch, defaultSearch])
 
     // DATA
     useEffect(() => {
