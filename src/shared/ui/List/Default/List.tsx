@@ -12,12 +12,16 @@ export const List = <T extends object>({
     component: ListItemComponent,
     componentProps,
     direction = DEFAULT__LIST_DIRECTION,
-    className
+    className,
+    onClickItem=()=>{},
 }: ListProps<T>) => {
     return (
         <div className={cls(cl.list, cl[direction], className)}>
-            {items.map(it => (
-               <ListItemComponent {...componentProps} item={it}/> 
+            {items.map((it, index) => (
+               <ListItemComponent 
+                    {...componentProps} 
+                    item={it}
+                    onClick={() => onClickItem(it, index)} /> 
             ))}
         </div>
     )

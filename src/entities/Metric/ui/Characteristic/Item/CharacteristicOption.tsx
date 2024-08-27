@@ -13,11 +13,19 @@ interface CharacteristicOptionProps extends IListItem<ICharacteristic> {
 
 export const CharacteristicOption:FC<CharacteristicOptionProps> = ({
     item: characteristic, 
+    onClick,
     href,
     className
 }) => {
+
+    // HANDLE
+    const handleOnClick = () => {
+        console.log('qwe CharacteristicOption handleOnClick', onClick)
+        if (onClick) onClick()
+    }
+
     const html = (
-        <button className={cls(characteristic.isActive ? cl.active : '', cl.block, className)}>
+        <button onClick={handleOnClick} className={cls(characteristic.isActive ? cl.active : '', cl.block, className)}>
             <span className={cl.title}>{characteristic.title}</span>
         </button>
     )

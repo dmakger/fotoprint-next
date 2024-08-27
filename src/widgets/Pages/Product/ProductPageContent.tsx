@@ -11,6 +11,9 @@ import { ICharacteristic, ICharacteristicGroupToCharacteristic } from "@/entitie
 import { formattedCombinationProductList } from "@/entities/Product/lib/combination.product.lib";
 import { CharacteristicList } from "@/entities/Metric/ui/Characteristic/List/CharacteristicList";
 import { ListDirection } from "@/shared/data/list.data";
+import { TListItemOnClick } from "@/shared/model/list.model";
+import { useRouter } from "next/navigation";
+import { MAIN_PAGES } from "@/config/pages-url.config";
 
 interface ProductPageContentProps{
     className?: string,
@@ -19,6 +22,7 @@ interface ProductPageContentProps{
 export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
     // PARAMS
     const {id} = useParams();
+    const router = useRouter()
 
     // STATE
     const [combinationProducts, setCombinationProducts] = useState<ICharacteristicGroupToCharacteristic[]>([])
@@ -27,9 +31,9 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
     const {data: product} = ProductAPI.useGetDetailProductQuery(Array.isArray(id) ? id[0] : id)
     const {data: combinations} = ProductAPI.useGetCombinationsProductQuery(product?.parentId ?? skipToken)
 
-    // console.log('product', product)
-    // console.log('combinations', combinations)
-    // console.log('combinationProducts', combinationProducts)
+    console.log('qwe product', product)
+    console.log('qwe combinations', combinations)
+    console.log('qwe combinationProducts', combinationProducts)
 
     // EFFECT
     useEffect(() => {
@@ -37,13 +41,23 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
             setCombinationProducts(formattedCombinationProductList(combinations, product?.id))
     }, [combinations])
 
+    // HANDLE
+    const handleOnClickCharacteristic: TListItemOnClick<ICharacteristic> = (it) => {
+        console.log('qwe handleOnClickCharacteristic', it)
+        router.push(MAIN_PAGES.PRODUCT(it.id))
+    }
     
     return (
         <div className={cls(className)}>
             {JSON.stringify(combinations)}
             <div className={cl.options}>
-                {combinationProducts.map(it => (
-                    <CharacteristicList items={it.characteristics} direction={ListDirection.Wrap} hasTitleGroup={true} />
+                {combinationProducts.map((it, index) => (
+                    <CharacteristicList 
+                        items={it.characteristics} 
+                        onClickItem={handleOnClickCharacteristic}
+                        direction={ListDirection.Wrap} 
+                        hasTitleGroup={true} 
+                        key={index} />
                 ))}
             </div>
         </div>

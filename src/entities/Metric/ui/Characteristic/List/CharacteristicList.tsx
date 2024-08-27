@@ -12,7 +12,12 @@ interface CharacteristicListProps extends IListTopLevel<ICharacteristic>{
     hasTitleGroup?: boolean
 }
 
-export const CharacteristicList:FC<CharacteristicListProps> = ({hasTitleGroup, items, className, ...rest}) => {    
+export const CharacteristicList:FC<CharacteristicListProps> = ({
+    hasTitleGroup, 
+    items, 
+    className, 
+    ...rest
+}) => {    
     const list = (
         <List {...rest} items={items} component={CharacteristicOption} className={cls(cl.list, className)}/>
     )

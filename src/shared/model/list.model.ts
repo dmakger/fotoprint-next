@@ -29,11 +29,11 @@ export interface IList<T> extends IListTopLevel<T> {
  */
 export interface IListItem<T> extends TAnyParams {
     item: T,
-    onClick?: TListItemOnClick<T>
+    onClick?: Function
     className?: string,
 }
 
 /**
  * Функция нажатия на `ListItem`
  */
-export type TListItemOnClick<T> = (it: T) => void
+export type TListItemOnClick<T> = (it: T, index?: number) => void
