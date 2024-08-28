@@ -20,13 +20,12 @@ export const CharacteristicOption:FC<CharacteristicOptionProps> = ({
 
     // HANDLE
     const handleOnClick = () => {
-        console.log('qwe CharacteristicOption handleOnClick', onClick)
         if (onClick) onClick()
     }
 
     const html = (
         <button onClick={handleOnClick} className={cls(characteristic.isActive ? cl.active : '', cl.block, className)}>
-            <span className={cl.title}>{characteristic.title}</span>
+            <span className={cl.title}>{characteristic.title} {characteristic.id}</span>
         </button>
     )
 
