@@ -7,7 +7,7 @@ import cl from './_ProductPageContent.module.scss'
 import { useParams } from "next/navigation";
 import { ProductAPI } from "@/entities/Product/api/product.api";
 import { skipToken } from "@reduxjs/toolkit/query";
-import { ICharacteristic, ICharacteristicGroupToCharacteristic } from "@/entities/Metric/model/characteristic.metric.model";
+import { ICharacteristic, ICharacteristicGroupToCharacteristic, ICombination } from "@/entities/Metric/model/characteristic.metric.model";
 import { formattedCombinationProductList } from "@/entities/Product/lib/combination.product.lib";
 import { CharacteristicList } from "@/entities/Metric/ui/Characteristic/List/CharacteristicList";
 import { ListDirection } from "@/shared/data/list.data";
@@ -29,20 +29,20 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
 
     // API
     const {data: product} = ProductAPI.useGetDetailProductQuery(Array.isArray(id) ? id[0] : id)
-    const {data: combinations} = ProductAPI.useGetCombinationsProductQuery(product?.parentId ?? skipToken)
+    const {data: combinations} = ProductAPI.useGetCombinationsProductQuery(product?.id ?? skipToken)
 
-    console.log('qwe product', product)
-    console.log('qwe combinations', combinations)
-    console.log('qwe combinationProducts', combinationProducts)
+    // console.log('qwe product', product)
+    // console.log('qwe combinations', combinations)
+    // console.log('qwe combinationProducts', combinationProducts)
 
     // EFFECT
-    useEffect(() => {
-        if (combinations)
-            setCombinationProducts(formattedCombinationProductList(combinations, product?.id))
-    }, [combinations])
+    // useEffect(() => {
+    //     if (combinations)
+    //         setCombinationProducts(formattedCombinationProductList(combinations, product?.id))
+    // }, [combinations])
 
     // HANDLE
-    const handleOnClickCharacteristic: TListItemOnClick<ICharacteristic> = (it) => {
+    const handleOnClickCharacteristic: TListItemOnClick<ICombination> = (it) => {
         console.log('qwe handleOnClickCharacteristic', it)
         router.push(MAIN_PAGES.PRODUCT(it.id))
     }
@@ -51,9 +51,9 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
         <div className={cls(className)}>
             {JSON.stringify(combinations)}
             <div className={cl.options}>
-                {combinationProducts.map((it, index) => (
+                {combinations && combinations.combinations.map((it, index) => (
                     <CharacteristicList 
-                        items={it.characteristics} 
+                        items={it} 
                         onClickItem={handleOnClickCharacteristic}
                         direction={ListDirection.Wrap} 
                         hasTitleGroup={true} 

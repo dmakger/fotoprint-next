@@ -1,5 +1,5 @@
 import { ICategory } from "@/entities/Metric/model/category.metric.model"
-import { ICharacteristic } from "@/entities/Metric/model/characteristic.metric.model"
+import { ICharacteristic, ICombination } from "@/entities/Metric/model/characteristic.metric.model"
 import { IExecutionTime } from "@/entities/Metric/model/executionTime.metric.model"
 
 /**
@@ -34,7 +34,8 @@ export interface IProductForm {
 export interface IProductCharacteristicCombination {
     id: number
     price: number
-    characteristics: ICharacteristic[]
-    forms: IProductForm[]
+    image: string | null
+    combinations: ICombination[][]
+    // forms: IProductForm[]
     execution_time: number
 }

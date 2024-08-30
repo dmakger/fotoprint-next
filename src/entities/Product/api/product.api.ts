@@ -24,7 +24,7 @@ export const ProductAPI = createApi({
 			})
 		}),
 
-		getCombinationsProduct: build.query<IProductCharacteristicCombination[], number | string>({
+		getCombinationsProduct: build.query<IProductCharacteristicCombination, number | string>({
 			query: (productId) => ({
 				url: `combinations/${productId}`,
 				method: 'GET',

@@ -26,3 +26,10 @@ export interface ICharacteristicGroupToCharacteristic {
     characteristicGroup: ICharacteristicGroup
     characteristics: ICharacteristic[]
 }
+
+
+export interface ICombination {
+    id: number
+    characteristic: ICharacteristic
+    isActive?: boolean
+}
