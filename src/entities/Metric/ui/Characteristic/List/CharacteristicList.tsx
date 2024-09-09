@@ -22,8 +22,6 @@ export const CharacteristicList:FC<CharacteristicListProps> = ({
         <List {...rest} items={items} component={CharacteristicOption} className={cls(cl.list, className)}/>
     )
 
-    console.log('qwe items', items)
-
     if (!hasTitleGroup)
         return list
     return (

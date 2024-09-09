@@ -25,7 +25,7 @@ export const CharacteristicOption:FC<CharacteristicOptionProps> = ({
 
     const html = (
         <button onClick={handleOnClick} className={cls(characteristic.isActive ? cl.active : '', cl.block, className)}>
-            <span className={cl.title}>{characteristic.characteristic.title} {characteristic.id}</span>
+            <span className={cl.title}>{characteristic.characteristic.title} {characteristic.id} {characteristic.productCombinationId}</span>
         </button>
     )
 

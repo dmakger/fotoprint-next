@@ -32,4 +32,5 @@ export interface ICombination {
     id: number
     characteristic: ICharacteristic
     isActive?: boolean
+    productCombinationId?: number
 }
