@@ -3,6 +3,7 @@ import { API_URL } from "@/shared/data/api.data";
 import { IProduct, IProductCharacteristicCombination } from "../model/product.model";
 import { IProductProps, IProductQuery } from "../model/props.product.model";
 import { propsToString } from "@/shared/lib/props.lib";
+import { IProductForm } from "../model/form.product.model";
 
 export const ProductAPI = createApi({
 	reducerPath: 'productAPI',
@@ -27,6 +28,13 @@ export const ProductAPI = createApi({
 		getCombinationsProduct: build.query<IProductCharacteristicCombination, number | string>({
 			query: (productId) => ({
 				url: `combinations/${productId}`,
+				method: 'GET',
+			})
+		}),
+
+		getFormsProduct: build.query<IProductForm[], number | string>({
+			query: (productId) => ({
+				url: `forms/${productId}`,
 				method: 'GET',
 			})
 		}),

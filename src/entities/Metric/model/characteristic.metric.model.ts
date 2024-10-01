@@ -18,7 +18,6 @@ export interface ICharacteristic {
     isActive?: boolean
 }
 
-
 /**
  * `Группа характеристик` к списку `Характеристик`
  */

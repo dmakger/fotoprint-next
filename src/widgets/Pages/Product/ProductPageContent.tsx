@@ -26,6 +26,9 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
     // API
     const {data: product} = ProductAPI.useGetDetailProductQuery(Array.isArray(id) ? id[0] : id)
     const {data: combinations} = ProductAPI.useGetCombinationsProductQuery(product?.id ?? skipToken)
+    const {data: forms} = ProductAPI.useGetFormsProductQuery(product?.id ?? skipToken)
+
+    console.log('qwe forms', forms)
 
     // HANDLE
     const handleOnClickCharacteristic: TListItemOnClick<ICombination> = (it) => {
@@ -46,6 +49,8 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
                         hasTitleGroup={true} 
                         key={index} />
                 ))}
+
+                {/* {forms && forms.} */}
             </div>
         </div>
     )
