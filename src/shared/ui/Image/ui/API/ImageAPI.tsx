@@ -1,34 +1,66 @@
-import { FC } from "react"
+"use client"
+
+import { FC, useMemo } from "react"
 import Image from 'next/image'
 import cl from './_ImageAPI.module.scss'
-import { cls } from "@/shared/lib/classes.lib"
-// import defaultImageJPG from '@/shared/assets/img/default-image.jpg'
 import { getImage } from "@/shared/lib/image.lib"
-
+import { cls } from "@/shared/lib/classes.lib"
 
 interface ImageAPIProps {
     src: string
+    toImage?: boolean
     alt?: string
-    width?: number
-    height?: number
+    width?: number | string
+    height?: number | string
+    fill?: boolean
     priority?: boolean
     quality?: number
+    onClick?: Function
+    classNameWrapper?: string,
     className?: string,
 }
 
-export const ImageAPI: FC<ImageAPIProps> = ({ src, alt, width = 40, height = 40, priority = true, quality=80, className }) => {
-    return (
+export const ImageAPI: FC<ImageAPIProps> = ({ 
+    src, alt, 
+    width, height, fill=true, 
+    priority=true, quality=80,
+    toImage=true,
+    onClick, 
+    classNameWrapper, className, 
+}) => {
+    // MEMO
+    const image = useMemo(() => {
+        // return src ? (toImage ? getImage(src) : src) : defaultImageJPG 
+        return toImage ? getImage(src) : src 
+    }, [src, toImage])
+
+    // HANDLE
+    const handleOnClickImage = () => {
+        if (onClick) onClick()
+    }
+
+    const imageHTML = (
         <Image loader={() => src}
             unoptimized={true}
-            // src={src ? getImage(src) : defaultImageJPG}
-            src={getImage(src)}
+            onClick={handleOnClickImage}
+            src={image}
             priority={priority}
             alt={alt ? alt : src}
-            width={width ?? 100}
-            height={height ?? 100}
-            quality={quality < 1 || quality > 100 ? 80 : quality}
-            // layout="responsive"
+            width={fill ? undefined : (typeof width === 'string' ? parseInt(width) : width) ?? 100}
+            height={fill ? undefined : (typeof height === 'string' ? parseInt(height) : height) ?? 100}
+            // quality={quality < 1 || quality > 100 ? 80 : quality}
+            // layout={layout}
+            fill={fill}
             className={cls(cl.image, className)}>
         </Image>
     )
+
+    if (fill && (width || height)) {
+        return (
+            <div style={{width, height}} className={cls(cl.wrapperImage, classNameWrapper)}>
+                {imageHTML}
+            </div>
+        )
+    }
+    return imageHTML
 }
