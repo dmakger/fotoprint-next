@@ -14,7 +14,8 @@
   --white-light: #F5F4F2;
   --gray-1: #F0F0F0;
   --gray-2: #E0E0E0;
-  --gray-3: #828282;
+  --gray-3: #E8E8ED;
+  --gray-4: #828282;
 
   --green-1: #1CAC59;
   --green-2: #2ED573;
@@ -23,7 +24,7 @@
 
   // SPECIFY
   --foreground-1: var(--black);
-  --foreground-2: var(--gray-3);
+  --foreground-2: var(--gray-4);
   --foreground-3: var(--white);
 
   --background-1: var(--gray-1);
@@ -38,6 +39,12 @@
   --primary-surface-sub: var(--green-light);
 
   --secondary: var(--green-2);
+  --secondary-hovered: var(--black);
+  --on-secondary: var(--white);
+  --secondary-surface: var(--green-light);
+  --secondary-surface-sub: var(--green-light);
+
+
   --third: var(--green-3);
   --primary-light: var(--green-light);
 
@@ -62,7 +69,7 @@
   --fs-elg: 3rem;
 
   //FONT-WEIGHT
-  --fw-medium: 500;
+  --fw-semi-bold: 500;
   --fw-bold: 600;
   --fw-black: 900;
 }
@@ -98,7 +105,7 @@ body {
   input {
     color: var(--foreground-1);
     font-family: var(--montserrat-font);
-    font-weight: var(--fw-medium);
+    font-weight: var(--fw-semi-bold);
 
     &::placeholder {
       color: var(--gray-5);
@@ -109,7 +116,7 @@ body {
 body {
   background-color: var(--background-1);
   color: var(--foreground-1);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-semi-bold);
   font-size: var(--fs-srg);
 }
 

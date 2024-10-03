@@ -9,15 +9,15 @@
     --button-color-surface-sub: var(--primary-surface-sub);
 }
 
-// .secondary {
-//     --button-color: var(--secondary);
-//     --button-color-border: var(--secondary-border);
-//     --button-color-hovered: var(--secondary-hovered);
-//     --button-color-pressed: var(--secondary-pressed);
-//     --button-color-on: var(--on-secondary);
-//     --button-color-surface: var(--secondary-surface);
-//     --button-color-surface-sub: var(--secondary-surface-sub);
-// }
+.secondary {
+    --button-color: var(--secondary);
+    --button-color-border: var(--secondary-border);
+    --button-color-hovered: var(--secondary-hovered);
+    --button-color-pressed: var(--secondary-pressed);
+    --button-color-on: var(--on-secondary);
+    --button-color-surface: var(--secondary-surface);
+    --button-color-surface-sub: var(--secondary-surface-sub);
+}
 
 
 // <<< ========={ BUTTON COLOR }========= <<<
@@ -32,10 +32,10 @@
     align-items: center;
     gap: 10px;
     width: auto;
-    border-radius: 100px;
+    border-radius: 6px;
 
     font-size: var(--font-size-reg);
-    font-weight: var(--font-weight-sb);
+    font-weight: var(--fw-semi-bold);
 
     cursor: pointer;
     transition: .3s;
@@ -58,11 +58,16 @@
 }
 
 
+.rounded {
+    border-radius: 100px !important;
+}
+
+
 // >>> ========={ SIZE }========= >>>
 .big {
     padding: 17px 29px;
     // border-radius: 25px;
-    font-size: var(--font-size-reg);
+    font-size: var(--fs-srg);
 
     &.noTitle {
         padding: 17px;
@@ -71,7 +76,7 @@
 .medium {
     padding: 13px 25px;
     // border-radius: 20px;
-    font-size: var(--font-size-s);
+    font-size: var(--fs-srg);
 
     &.noTitle {
         padding: 13px;
@@ -80,7 +85,7 @@
 .small {
     padding: 10px 20px;
     // border-radius: 15px;
-    font-size: var(--font-size-xxs);
+    font-size: var(--fs-srg);
 
     &.noTitle {
         padding: 10px;
@@ -90,6 +95,9 @@
 
 
 // >>> ========={ NEW STYLES }========= >>>
+.default {
+
+}
 .fill {
     background-color: var(--button-color);
     color: var(--button-color-on);

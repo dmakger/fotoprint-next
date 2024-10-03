@@ -5,6 +5,7 @@ export enum ButtonType {
 
 export enum ButtonColor {
     Primary = 'primary',
+    Secondary = 'secondary',
 }
 
 export enum ButtonSize {
@@ -15,8 +16,9 @@ export enum ButtonSize {
 }
 
 export enum ButtonVariant{
-    FILL = "fill new",
-    TONAL = "tonal new",
-    BORDER = "border new",
-    CONTENT = "content new",
+    DEFAULT = "default",
+    FILL = "fill",
+    TONAL = "tonal",
+    BORDER = "border",
+    CONTENT = "content",
 }

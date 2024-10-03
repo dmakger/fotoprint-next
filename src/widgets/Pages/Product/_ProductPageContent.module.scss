@@ -6,10 +6,26 @@
                 font-weight: var(--fw-bold);
                 font-size: var(--fs-elg);
             }
-            .price {
-                font-weight: var(--fw-medium);
-                font-size: var(--fs-elg);
+
+            .wrapperPrice {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 0;
+                border-top: 1px solid var(--gray-3);
+                border-bottom: 1px solid var(--gray-3);
+                
+                .price {
+                    font-weight: var(--fw-semi-bold);
+                    font-size: var(--fs-elg);
+                }
+    
+                .addCart {
+                    width: 100%;
+                }
             }
+
             .options {
                 display: flex;
                 flex-direction: column;

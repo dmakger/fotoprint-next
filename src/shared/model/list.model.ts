@@ -1,6 +1,6 @@
+import { Dispatch, SetStateAction } from "react";
 import { ListDirection } from "../data/list.data";
 import { TAnyParams } from "./params.model";
-
 
 /**
  * Интерфейс необходимый для реализации списка **верхнего уровня**.  
@@ -8,9 +8,15 @@ import { TAnyParams } from "./params.model";
  */
 export interface IListTopLevel<T> extends TAnyParams {
     items: T[];
+    activeId?: number | string
+    activeIndex?: number
+    setActiveIndex?: Dispatch<SetStateAction<number>> | Dispatch<SetStateAction<number | undefined>>
+    listRef?: React.RefObject<HTMLDivElement>
     componentProps?: TAnyParams;
     onClickItem?: TListItemOnClick<T>
+    generateKey?: (it: T, index?: number) => number | string
     direction?: ListDirection;
+    gap?: number
     className?: string;
     classNameItem?: string;
 }
@@ -29,7 +35,11 @@ export interface IList<T> extends IListTopLevel<T> {
  */
 export interface IListItem<T> extends TAnyParams {
     item: T,
+    activeId?: number | string
+    isActive?: boolean
+    // onClick?: TListItemOnClick<T>
     onClick?: Function
+    style?: object
     className?: string,
 }
 

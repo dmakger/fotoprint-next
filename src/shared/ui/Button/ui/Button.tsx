@@ -15,6 +15,7 @@ export interface IButton {
     color?: ButtonColor
     type?: ButtonType
     size?: ButtonSize
+    isRounded?: boolean
 
     ref?: RefObject<HTMLButtonElement>
 
@@ -47,7 +48,7 @@ export interface IButton {
 }
 
 export const Button = ({
-    variant = ButtonVariant.FILL, color=ButtonColor.Primary, type = ButtonType.Button, size=ButtonSize.DefaultSize,
+    variant = ButtonVariant.FILL, color=ButtonColor.Primary, type = ButtonType.Button, size=ButtonSize.DefaultSize, isRounded=true,
     ref,
     title, href,
     beforeImage, beforeProps, afterImage, afterProps, 
@@ -56,10 +57,6 @@ export const Button = ({
     children, className, classNameLink, 
     classNameText, classNameTextHovered, classNameTextPressed, classNameTextDisabled,
 }: IButton) => {
-
-    // STYLES
-    const classes = variant.split(' ')    
-
     // STATE
     const [isHovered, setIsHovered] = useState<boolean>(false)
     const [isPressed, setIsPressed] = useState<boolean>(false)
@@ -99,7 +96,13 @@ export const Button = ({
         <button type={type} ref={ref} disabled={disabled || loading} 
                 onClick={e => onClick(e)} onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave} 
                 onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}
-                className={cls(cl.button, cl[classes[0]], cl[color], cl[size], active ? cl.active : '', classes.length > 0 && classes[1] === 'new' ? cl.new : cl.old, className)}>
+                className={cls(
+                    cl.button, 
+                    cl[variant], cl[color], cl[size],
+                    isRounded ? cl.rounded : '', 
+                    active ? cl.active : '', 
+                    className
+                )}>
             {beforeImage &&
                 <ImageSmart {...beforeProps} icon={beforeImage} 
                             width={beforeProps && beforeProps.width ? beforeProps.width: sizeImage} 

@@ -1,12 +1,27 @@
 .block {
+    display: flex;
+
+    .price {
+        font-weight: var(--fw-bold);
+    }
+}
+
+// >>>======{ VARIANTS }======>>>
+.fill {
     background-color: var(--primary);
     border-radius: 10px;
-    display: flex;
     width: fit-content;
 
     .price {
         padding: 5px 10px;
-        font-weight: var(--fw-bold);
         color: var(--foreground-3);
     }
 }
+
+.text {
+    .price {
+        font-size: var(--fs-lg);
+        font-weight: var(--fw-bold);
+    }
+}
+// <<<======{ VARIANTS }======<<<

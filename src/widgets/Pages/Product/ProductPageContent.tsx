@@ -14,6 +14,11 @@ import { TListItemOnClick } from "@/shared/model/list.model";
 import { useRouter } from "next/navigation";
 import { MAIN_PAGES } from "@/config/pages-url.config";
 import { privateDecrypt } from "crypto";
+import { Price } from "@/shared/ui/Price/Price";
+import { PriceVariant } from "@/shared/data/price.data";
+import { Button } from "@/shared/ui/Button";
+import { ButtonColor, ButtonSize } from "@/shared/ui/Button/model/button.model";
+import { ImageProductionSlider } from "@/features/Slider/ImageProduction/ImageProductionSlider";
 
 interface ProductPageContentProps{
     className?: string,
@@ -42,10 +47,18 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
     return (
         <div className={cls(cl.block, className)}>
             <div className={cl.main}>
-                <div className={cl.slider}></div>
+                {/* <div className={cl.slider}></div> */}
+                <ImageProductionSlider 
+                    items={product?.images ?? []} 
+                    componentProps={{width: 100, height: 100}} />
                 <div className={cl.info}>
                     <h1 className={cl.title}>{product?.title}</h1>
-                    <span className={cl.price}>{product?.price}</span>
+                    <div className={cl.wrapperPrice}>
+                        <Price price={product?.price ?? 0} variant={PriceVariant.Text} />
+                        <Button title={"Добавить в корзину"} 
+                                color={ButtonColor.Secondary} size={ButtonSize.Small} isRounded={false}
+                                className={cl.addCart} />
+                    </div>
                     <div className={cl.options}>
                         {combinations && combinations.combinations.map((it, index) => (
                             <CharacteristicList 

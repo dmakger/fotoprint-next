@@ -10,6 +10,7 @@ export interface IProduct {
     title: string
     price: 160.0,
     image: string | null,
+    images: string[],
     parentId: number,
     category: ICategory
     executionTime: IExecutionTime
