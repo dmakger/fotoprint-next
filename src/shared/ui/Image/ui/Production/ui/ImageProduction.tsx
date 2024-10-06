@@ -5,9 +5,9 @@ import cl from './_ImageProduction.module.scss'
 import { ImageAPI } from "../../API/ImageAPI";
 import { ImageProductionColor, ImageProductionVariant } from "../data/production.image.data";
 import { Button, ButtonVariant } from "@/shared/ui/Button";
+import { IListItem } from "@/shared/model/list.model";
 
-interface ImageProductionProps {
-    src: string
+interface ImageProductionProps extends IListItem<string> {
     variant?: ImageProductionVariant
     color?: ImageProductionColor
     width?: number
@@ -19,7 +19,7 @@ interface ImageProductionProps {
 }
 
 export const ImageProduction:FC<ImageProductionProps> = ({
-    src, 
+    item: src, 
     variant=ImageProductionVariant.GrayToImage, color=ImageProductionColor.Empty,
     width, height,
     isActive=false, 
@@ -28,7 +28,7 @@ export const ImageProduction:FC<ImageProductionProps> = ({
 }) => {
     const html = (
         <div className={cls(cl.wrapper, cl[variant], cl[color], isActive ? cl.active : '', className)}>
-            {/* <div className={cl.foreground} /> */}
+            <div className={cl.foreground} />
             <ImageAPI src={src} width={width} height={height} className={cls(cl.image, classNameImage)} />
         </div>
     )
@@ -36,7 +36,7 @@ export const ImageProduction:FC<ImageProductionProps> = ({
         return html
 
     return (
-        <Button onClick={onClick}>
+        <Button onClick={onClick} variant={ButtonVariant.DEFAULT}>
             {html}
         </Button>
     )

@@ -1,6 +1,26 @@
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { SliderPagingVariant } from "../data/slider.data";
-import { IList, IListTopLevel } from "./list.model";
+import { IList, IListBase, IListTopLevel } from "./list.model";
+
+export interface ISliderBase<T> extends IListBase<T> {
+    isIndexChangeOnClick?: boolean
+    classNameWrapper?: string,
+    hasGalleryCounter?: boolean
+
+    // slider
+}
+
+
+export interface ISliderGallery<T> extends IListBase<T> {
+    pagingVariant?: SliderPagingVariant
+    pagingAmount?: number
+    slideWidth?: number
+    isFull?: boolean
+    isIndexChangeOnClick?: boolean
+    classNameSlider?: string,
+    classNameWrapper?: string,
+    hasGalleryCounter?: boolean
+}
+
 
 export interface ISliderTop<T> extends IListTopLevel<T> {
     pagingVariant?: SliderPagingVariant

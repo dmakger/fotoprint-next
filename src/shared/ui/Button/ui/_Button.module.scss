@@ -97,6 +97,10 @@
 // >>> ========={ NEW STYLES }========= >>>
 .default {
 
+    &:hover {
+        background-color: inherit !important;
+    }
+
 }
 .fill {
     background-color: var(--button-color);

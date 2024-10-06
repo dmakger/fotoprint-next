@@ -1,24 +1,25 @@
 "use client"
 
-import { FC, useState } from "react"
+import { FC } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_ProductPageContent.module.scss'
 import { useParams } from "next/navigation";
 import { ProductAPI } from "@/entities/Product/api/product.api";
 import { skipToken } from "@reduxjs/toolkit/query";
-import { ICharacteristicGroupToCharacteristic, ICombination } from "@/entities/Metric/model/characteristic.metric.model";
+import { ICombination } from "@/entities/Metric/model/characteristic.metric.model";
 import { CharacteristicList } from "@/entities/Metric/ui/Characteristic/List/CharacteristicList";
 import { ListDirection } from "@/shared/data/list.data";
 import { TListItemOnClick } from "@/shared/model/list.model";
 import { useRouter } from "next/navigation";
 import { MAIN_PAGES } from "@/config/pages-url.config";
-import { privateDecrypt } from "crypto";
 import { Price } from "@/shared/ui/Price/Price";
 import { PriceVariant } from "@/shared/data/price.data";
 import { Button } from "@/shared/ui/Button";
 import { ButtonColor, ButtonSize } from "@/shared/ui/Button/model/button.model";
 import { ImageProductionSlider } from "@/features/Slider/ImageProduction/ImageProductionSlider";
+import { SliderGallery } from "@/shared/ui/Slider/Gallery/SliderGallery";
+import { ImageProduction } from "@/shared/ui/Image/ui/Production/ui/ImageProduction";
 
 interface ProductPageContentProps{
     className?: string,
@@ -48,9 +49,11 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
         <div className={cls(cl.block, className)}>
             <div className={cl.main}>
                 {/* <div className={cl.slider}></div> */}
-                <ImageProductionSlider 
+                {/* <ImageProductionSlider 
                     items={product?.images ?? []} 
-                    componentProps={{width: 100, height: 100}} />
+                    componentProps={{width: 100, height: 100}}
+                    direction={ListDirection.Column} /> */}
+                <SliderGallery component={ImageProduction} items={product?.images ?? []} componentProps={{width: 100, height: 100}} />
                 <div className={cl.info}>
                     <h1 className={cl.title}>{product?.title}</h1>
                     <div className={cl.wrapperPrice}>
