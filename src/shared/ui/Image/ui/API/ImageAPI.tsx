@@ -41,7 +41,7 @@ export const ImageAPI: FC<ImageAPIProps> = ({
 
     const imageHTML = (
         <Image loader={() => src}
-            unoptimized={true}
+            // unoptimized={true}
             onClick={handleOnClickImage}
             src={image}
             priority={priority}
