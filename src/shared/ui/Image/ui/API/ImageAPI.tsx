@@ -28,12 +28,6 @@ export const ImageAPI: FC<ImageAPIProps> = ({
     onClick, 
     classNameWrapper, className, 
 }) => {
-    // MEMO
-    const image = useMemo(() => {
-        // return src ? (toImage ? getImage(src) : src) : defaultImageJPG 
-        return toImage ? getImage(src) : src 
-    }, [src, toImage])
-
     // HANDLE
     const handleOnClickImage = () => {
         if (onClick) onClick()
@@ -43,7 +37,7 @@ export const ImageAPI: FC<ImageAPIProps> = ({
         <Image loader={() => src}
             // unoptimized={true}
             onClick={handleOnClickImage}
-            src={image}
+            src={typeof src === "string" ? getImage(src) : src}
             priority={priority}
             alt={alt ? alt : src}
             width={fill ? undefined : (typeof width === 'string' ? parseInt(width) : width) ?? 100}
