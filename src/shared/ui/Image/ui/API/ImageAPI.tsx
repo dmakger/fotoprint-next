@@ -34,15 +34,15 @@ export const ImageAPI: FC<ImageAPIProps> = ({
     }
 
     const imageHTML = (
-        <Image loader={() => src}
-            // unoptimized={true}
+        <Image 
+            unoptimized={true}
             onClick={handleOnClickImage}
             src={typeof src === "string" ? getImage(src) : src}
             priority={priority}
             alt={alt ? alt : src}
             width={fill ? undefined : (typeof width === 'string' ? parseInt(width) : width) ?? 100}
             height={fill ? undefined : (typeof height === 'string' ? parseInt(height) : height) ?? 100}
-            // quality={quality < 1 || quality > 100 ? 80 : quality}
+            quality={quality}
             // layout={layout}
             fill={fill}
             className={cls(cl.image, className)}>

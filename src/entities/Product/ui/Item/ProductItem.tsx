@@ -20,9 +20,10 @@ export const ProductItem:FC<ProductItemProps> = ({
     linkToProduct=true,
     className,
 }) => {
+    // console.log('qwe productImage', getProductImage(product.image))
     return (
         <Link href={linkToProduct ? MAIN_PAGES.PRODUCT(product.id) : '#'} className={cls(cl.product, className)}>
-            <ImageAPI src={getProductImage(product.image)} fill={false} className={cl.image} />
+            <ImageAPI src={getProductImage(product.image)} fill={false} quality={100} className={cl.image} />
             <div className={cl.bottom}>
                 <h4 className={cl.title}>{product.title}</h4>
                 <span className={cl.executionTime}>{getTextByExecutionTime(product.executionTime)}</span>

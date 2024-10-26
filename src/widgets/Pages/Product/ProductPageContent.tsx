@@ -20,6 +20,8 @@ import { ButtonColor, ButtonSize } from "@/shared/ui/Button/model/button.model";
 import { ImageProductionSlider } from "@/features/Slider/ImageProduction/ImageProductionSlider";
 import { SliderGallery } from "@/shared/ui/Slider/Gallery/SliderGallery";
 import { ImageProduction } from "@/shared/ui/Image/ui/Production/ui/ImageProduction";
+import { WrapperBlock } from "@/shared/ui/Wrapper/Block/WrapperBlock";
+import { WrapperBlockVariant } from "@/shared/ui/Wrapper/Block/data/block.wrapper.data";
 
 interface ProductPageContentProps{
     className?: string,
@@ -55,13 +57,16 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
                     direction={ListDirection.Column} /> */}
                 <SliderGallery component={ImageProduction} items={product?.images ?? []} componentProps={{width: 100, height: 100}} />
                 <div className={cl.info}>
-                    <h1 className={cl.title}>{product?.title}</h1>
-                    <div className={cl.wrapperPrice}>
-                        <Price price={product?.price ?? 0} variant={PriceVariant.Text} />
-                        <Button title={"Добавить в корзину"} 
-                                color={ButtonColor.Secondary} size={ButtonSize.Small} isRounded={false}
-                                className={cl.addCart} />
-                    </div>
+                    <WrapperBlock variant={WrapperBlockVariant.Mid}>
+                        <h1 className={cl.title}>{product?.title}</h1>
+                        <div className={cl.wrapperPrice}>
+                            <Price price={product?.price ?? 0} variant={PriceVariant.Text} />
+                            <Button title={"Добавить в корзину"} 
+                                    color={ButtonColor.Secondary} size={ButtonSize.Small} isRounded={false}
+                                    className={cl.addCart} />
+                        </div>
+                    </WrapperBlock>
+
                     <div className={cl.options}>
                         {combinations && combinations.combinations.map((it, index) => (
                             <CharacteristicList 
