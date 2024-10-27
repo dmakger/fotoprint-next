@@ -1,17 +1,24 @@
 .block {
+    width: 100%;
+    
     .main {
         display: flex;
         gap: 20px;
 
         .slider {}
         .info {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+
             .title {
-                font-weight: var(--fw-bold);
+                font-weight: var(--fw-semi-bold);
                 font-size: var(--fs-elg);
             }
 
             .wrapperPrice {
-                margin-top: 20px;
+                margin-top: 15px;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;

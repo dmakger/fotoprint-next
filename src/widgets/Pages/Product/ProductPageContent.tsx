@@ -8,7 +8,6 @@ import { useParams } from "next/navigation";
 import { ProductAPI } from "@/entities/Product/api/product.api";
 import { skipToken } from "@reduxjs/toolkit/query";
 import { ICombination } from "@/entities/Metric/model/characteristic.metric.model";
-import { CharacteristicList } from "@/entities/Metric/ui/Characteristic/List/CharacteristicList";
 import { ListDirection } from "@/shared/data/list.data";
 import { TListItemOnClick } from "@/shared/model/list.model";
 import { useRouter } from "next/navigation";
@@ -20,8 +19,10 @@ import { ButtonColor, ButtonSize } from "@/shared/ui/Button/model/button.model";
 import { ImageProductionSlider } from "@/features/Slider/ImageProduction/ImageProductionSlider";
 import { SliderGallery } from "@/shared/ui/Slider/Gallery/SliderGallery";
 import { ImageProduction } from "@/shared/ui/Image/ui/Production/ui/ImageProduction";
-import { WrapperBlock } from "@/shared/ui/Wrapper/Block/WrapperBlock";
-import { WrapperBlockVariant } from "@/shared/ui/Wrapper/Block/data/block.wrapper.data";
+import { WrapperBlockSize, WrapperBlockVariant } from "@/shared/ui/Wrapper/Block/data/block.wrapper.data";
+import { ProductFormBlock } from "@/entities/Product/ui/Form/this/ui/ProductFormBlock";
+import { WrapperBlock } from "@/shared/ui/Wrapper/Block/ui/WrapperBlock";
+import { CombinationList } from "@/entities/Metric/ui/Combination/List/CombinationList";
 
 interface ProductPageContentProps{
     className?: string,
@@ -37,12 +38,8 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
     const {data: combinations} = ProductAPI.useGetCombinationsProductQuery(product?.id ?? skipToken)
     const {data: forms} = ProductAPI.useGetFormsProductQuery(product?.id ?? skipToken)
 
-    console.log('qwe ', product)
-    console.log('qwe forms', forms)
-
     // HANDLE
     const handleOnClickCharacteristic: TListItemOnClick<ICombination> = (it) => {
-        console.log('qwe handleOnClickCharacteristic', it)
         if (it.productCombinationId)
             router.push(MAIN_PAGES.PRODUCT(it.productCombinationId))
     }
@@ -57,7 +54,7 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
                     direction={ListDirection.Column} /> */}
                 <SliderGallery component={ImageProduction} items={product?.images ?? []} componentProps={{width: 100, height: 100}} />
                 <div className={cl.info}>
-                    <WrapperBlock variant={WrapperBlockVariant.Mid}>
+                    <WrapperBlock variant={WrapperBlockVariant.Wide} size={WrapperBlockSize.Middle}>
                         <h1 className={cl.title}>{product?.title}</h1>
                         <div className={cl.wrapperPrice}>
                             <Price price={product?.price ?? 0} variant={PriceVariant.Text} />
@@ -67,21 +64,22 @@ export const ProductPageContent:FC<ProductPageContentProps> = ({className}) => {
                         </div>
                     </WrapperBlock>
 
-                    <div className={cl.options}>
+                    <WrapperBlock className={cl.options}>
                         {combinations && combinations.combinations.map((it, index) => (
-                            <CharacteristicList 
+                            <CombinationList 
                                 items={it} 
                                 onClickItem={handleOnClickCharacteristic}
                                 direction={ListDirection.Wrap} 
                                 hasTitleGroup={true} 
                                 key={index} />
                         ))}
+                    </WrapperBlock>
 
-                        {/* {forms && forms.} */}
-                    </div>
+                    {forms && forms.map(it => (
+                        <ProductFormBlock productForm={it} key={it.id} />
+                    ))}
                 </div>
             </div>
-            {/* {JSON.stringify(combinations)} */}
         </div>
     )
 }

@@ -1,17 +1,17 @@
 .block {
     display: flex;
     padding: 10px 20px;
-    border: 2px solid var(--gray-2);
+    border: 2px solid var(--tertiary-border);
     border-radius: 10px;
     transition: .2s;
 
     &:hover {
-        border-color: var(--gray-4);
+        border-color: var(--tertiary-hovered);
     }
 
     .title {
         color: var(--foreground-1);
-        font-weight: var(--fw-bold);
+        font-weight: var(--fw-semi-bold);
         font-size: var(--fs-srg);
     }
 }

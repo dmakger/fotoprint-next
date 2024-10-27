@@ -46,7 +46,6 @@ export const SuspenseLQuery:FC<SuspenseLQueryProps> = ({
 
     // SEARCH
     useEffect(() => {
-        console.log('qwe searchParams', searchParams.get(search))
         const value = searchParams.get(search) ?? defaultSearch
         setSearch(value)
     }, [searchParams, search, setSearch, defaultSearch])

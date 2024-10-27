@@ -1,4 +1,11 @@
 export enum WrapperBlockVariant {
-    Min = 'min',
-    Mid = 'mid',
+    Empty = 'empty',
+    Wide = 'wide',
+}
+
+
+export enum WrapperBlockSize {
+    Without = 'without',
+    Small = 'small',
+    Middle = 'middle',
 }

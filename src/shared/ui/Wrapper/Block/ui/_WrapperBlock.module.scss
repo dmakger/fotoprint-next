@@ -1,0 +1,32 @@
+.wrapper {
+    border-radius: 10px;
+
+    .title {
+        font-size: var(--fs-rg);
+        font-weight: var(--fw-semi-bold);
+        margin-bottom: 10px;
+    }
+}
+
+// >>> ========={ VARIANT }========= >>>
+.empty {}
+
+.wide {
+    background-color: var(--background-2);
+}
+// <<< ========={ VARIANT }========= <<<
+
+
+
+// >>> ========={ SIZE }========= >>>
+.without {}
+
+.small {
+    padding: 20px;
+}
+
+.middle {
+    padding: 20px 30px;
+}
+
+// <<< ========={ SIZE }========= <<<

@@ -4,10 +4,11 @@
 
 .wrapper {
     display: flex;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    gap: 15px;
 
     .title {
         font-size: var(--fs-rg);
+        font-weight: var(--fw-semi-bold);
     }
 }

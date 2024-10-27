@@ -4,7 +4,7 @@ import "./globals.scss";
 import { Providers } from "./_providers/app-provider";
 import { SITE_NAME } from "@/shared/data/seo.data";
 
-const inter = Montserrat({ subsets: ["latin", "cyrillic"], variable: '--montserrat-font'});
+const montserrat = Montserrat({ subsets: ["latin", "cyrillic"], variable: '--montserrat-font'});
 
 export const metadata: Metadata = {
 	title: {
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <Providers>
           {children}
         </Providers>

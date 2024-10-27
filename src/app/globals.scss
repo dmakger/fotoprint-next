@@ -12,10 +12,16 @@
   --white: #FFFFFF;
 
   --white-light: #F5F4F2;
-  --gray-1: #F0F0F0;
-  --gray-2: #E0E0E0;
-  --gray-3: #E8E8ED;
-  --gray-4: #828282;
+  // --gray-1: #F0F0F0;
+  // --gray-2: #E0E0E0;
+  // --gray-3: #E8E8ED;
+  // --gray-4: #828282;
+
+  --gray-1: #76788E;
+  --gray-2: #9294A5;
+  --gray-3: #CACBD3;
+  --gray-4: #E6E6EA;
+  --gray-5: #F4F4F6;
 
   --green-1: #1CAC59;
   --green-2: #2ED573;
@@ -32,21 +38,28 @@
   --background-3: var(--gray-2);
 
   // primary
-  --primary: var(--green-1);
+  --primary: var(--green-2);
   --primary-hovered: var(--green-3);
   --on-primary: var(--white);
   --primary-surface: var(--green-light);
   --primary-surface-sub: var(--green-light);
+  --primary-light: var(--green-light);
 
+  // secondary
   --secondary: var(--green-2);
   --secondary-hovered: var(--black);
   --on-secondary: var(--white);
   --secondary-surface: var(--green-light);
   --secondary-surface-sub: var(--green-light);
 
-
-  --third: var(--green-3);
-  --primary-light: var(--green-light);
+  // tertiary
+  --tertiary: var(--gray-2);
+  --tertiary-border: var(--gray-3);
+  --tertiary-hovered: var(--gray-1);
+  --tertiary-pressed: var(--gray-1);
+  --on-tertiary: var(--white);
+  --tertiary-surface: var(--gray-4);
+  --tertiary-surface-sub: var(--gray-4);
 
 
   // ===={ SIZES }====
@@ -69,8 +82,11 @@
   --fs-elg: 3rem;
 
   //FONT-WEIGHT
-  --fw-semi-bold: 500;
-  --fw-bold: 600;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
   --fw-black: 900;
 }
 

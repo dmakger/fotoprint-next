@@ -19,6 +19,16 @@
     --button-color-surface-sub: var(--secondary-surface-sub);
 }
 
+.tertiary {
+    --button-color: var(--tertiary);
+    --button-color-border: var(--tertiary-border);
+    --button-color-hovered: var(--tertiary-hovered);
+    --button-color-pressed: var(--tertiary-pressed);
+    --button-color-on: var(--on-tertiary);
+    --button-color-surface: var(--tertiary-surface);
+    --button-color-surface-sub: var(--tertiary-surface-sub);
+}
+
 
 // <<< ========={ BUTTON COLOR }========= <<<
 
@@ -116,7 +126,7 @@
     color: var(--button-color);
 
     &:hover {
-        border: 1px solid var(--button-color);
+        border-color: var(--button-color);
     }
 }
 .content {
