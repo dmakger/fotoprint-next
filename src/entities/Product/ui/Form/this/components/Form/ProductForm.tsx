@@ -5,6 +5,9 @@ import cl from './_ProductForm.module.scss';
 import { ICharacteristicForm } from "@/entities/Product/model/form.product.model";
 import { CharacteristicFormList } from "@/entities/Product/ui/CharacteristicForm/List/CharacteristicFormList";
 import { TListItemOnClick } from "@/shared/model/list.model";
+import { WrapperBlock } from "@/shared/ui/Wrapper/Block/ui/WrapperBlock";
+import { Button, ButtonVariant } from "@/shared/ui/Button";
+import { ButtonColor, ButtonSize } from "@/shared/ui/Button/model/button.model";
 
 interface ProductFormProps {
     forms: ICharacteristicForm[];
@@ -47,7 +50,7 @@ export const ProductForm: FC<ProductFormProps> = ({ forms, className }) => {
     };
 
     return (
-        <div className={cls(className, cl.productForm)}>
+        <WrapperBlock className={cls(cl.productForm, className)}>
             {selectedItems.map((selectedItem, level) => (
                 <CharacteristicFormList
                     items={level === 0 ? forms : selectedItems[level - 1]?.children || []}
@@ -56,6 +59,12 @@ export const ProductForm: FC<ProductFormProps> = ({ forms, className }) => {
                     key={level}
                 />
             ))}
-        </div>
+            <Button title="Добавить"
+                    color={ButtonColor.Primary}
+                    variant={ButtonVariant.FILL} 
+                    size={ButtonSize.Medium} 
+                    isRounded={false}
+                    className={cl.buttonAdd}/>
+        </WrapperBlock>
     );
 };
