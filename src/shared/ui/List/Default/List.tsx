@@ -14,7 +14,8 @@ export const List = <T extends any>({
     activeId,
     activeIndex,
     gap,
-    onClickItem = () => {},
+    onClickItem = ()=>{},
+    onClickDelete = ()=>{},
     generateKey,
     style,
     className,
@@ -36,6 +37,7 @@ export const List = <T extends any>({
                     item={it}
                     style={style}
                     onClick={() => onClickItem(it, index)}
+                    onClickDelete={() => onClickDelete(it, index)}
                     activeId={activeId}
                     isActive={activeIndex === index || !!(it && typeof it === 'object' && 'id' in it && it.id && activeId === it.id)}
                     key={generateKey ? generateKey(it, index) : (it && typeof it === 'object' && 'id' in it ? it.id as number : index)}

@@ -101,6 +101,7 @@ export const Button = ({
                     cl[variant], cl[color], cl[size],
                     isRounded ? cl.rounded : '', 
                     active ? cl.active : '', 
+                    !title ? cl.noTitle : '',
                     className
                 )}>
             {beforeImage &&

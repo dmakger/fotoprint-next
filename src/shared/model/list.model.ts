@@ -25,6 +25,7 @@ export interface IListBase<T> extends TAnyParams {
 export interface IListBaseOnlyItem<T> {
     componentProps?: TAnyParams;
     onClickItem?: TListItemOnClick<T>
+    onClickDelete?: TListItemOnClick<T>
     classNameItem?: string;
 }
 
@@ -54,6 +55,7 @@ export interface IListItem<T> extends TAnyParams {
     isActive?: boolean
     // onClick?: TListItemOnClick<T>
     onClick?: Function
+    onClickDelete?: Function
     style?: object
     className?: string,
 }

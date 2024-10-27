@@ -2,7 +2,6 @@
     display: flex;
     padding: 10px 20px;
     border: 2px solid var(--tertiary-border);
-    border-radius: 10px;
     transition: .2s;
 
     &:hover {
@@ -23,3 +22,40 @@
         border-color: var(--primary);
     }
 }
+
+.option {
+    display: flex;
+}
+
+
+// >>> ========={ VARIANT }========= >>>
+
+.simple {
+    .block {
+        border-radius: 10px;
+    }
+}
+
+.wDelete {
+    .block {
+        border-radius: 10px 0 0 10px;
+    }
+
+    .wrapperDelete {
+        background-color: var(--tertiary-border);
+        padding: 5px;
+        border-radius: 0 10px 10px 0;
+    
+        .buttonDelete {
+            background-color: var(--tertiary-border);
+            padding: 7px;
+
+            &:hover {
+                background-color: var(--tertiary) !important;
+            }
+        }
+    }
+}
+
+// <<< ========={ VARIANT }========= <<<
+

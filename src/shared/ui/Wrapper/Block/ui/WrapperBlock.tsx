@@ -13,6 +13,7 @@ interface WrapperBlockProps{
     children?: ReactNode
     className?: string,
     classNameTitle?: string,
+    classNameContent?: string,
 }
 
 export const WrapperBlock:FC<WrapperBlockProps> = ({
@@ -23,13 +24,16 @@ export const WrapperBlock:FC<WrapperBlockProps> = ({
     children,
     className, 
     classNameTitle,
+    classNameContent,
 }) => {
     return (
         <div className={cls(cl.wrapper, cl[variant], cl[size], className)}>
             {title && (
                 <h2 className={cls(cl.title, classNameTitle)}>{title}</h2>
             )}
-            {children}
+            <div className={cls(cl.content, classNameContent)}>
+                {children}
+            </div>
         </div>
     )
 }

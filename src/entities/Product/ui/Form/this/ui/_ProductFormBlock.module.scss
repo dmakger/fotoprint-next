@@ -1,3 +1,15 @@
 .buttonAdd {
     width: 100%;
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.errorMessage {
+    width: 100%;
+    padding: 10px;
+    color: var(--error);
+}

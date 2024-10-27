@@ -11,10 +11,11 @@ import { ButtonColor, ButtonSize } from "@/shared/ui/Button/model/button.model";
 
 interface ProductFormProps {
     forms: ICharacteristicForm[];
+    onClick?: Function
     className?: string;
 }
 
-export const ProductForm: FC<ProductFormProps> = ({ forms, className }) => {
+export const ProductForm: FC<ProductFormProps> = ({ forms, onClick, className }) => {
     // STATE
     const [selectedItems, setSelectedItems] = useState<ICharacteristicForm[]>([]);
 
@@ -49,9 +50,14 @@ export const ProductForm: FC<ProductFormProps> = ({ forms, className }) => {
         setSelectedItems(updatedSelectedItems);
     };
 
+    const handleOnClickAdd = () => {
+        if (onClick)
+            onClick(selectedItems)
+    }
+
     return (
-        <WrapperBlock className={cls(cl.productForm, className)}>
-            {selectedItems.map((selectedItem, level) => (
+        <WrapperBlock className={cls(cl.productForm, className)} classNameContent={cl.content}>
+            {selectedItems.map((_, level) => (
                 <CharacteristicFormList
                     items={level === 0 ? forms : selectedItems[level - 1]?.children || []}
                     onClickItem={(item) => handleOnClickItem(item, level)}
@@ -64,6 +70,7 @@ export const ProductForm: FC<ProductFormProps> = ({ forms, className }) => {
                     variant={ButtonVariant.FILL} 
                     size={ButtonSize.Medium} 
                     isRounded={false}
+                    onClick={handleOnClickAdd}
                     className={cl.buttonAdd}/>
         </WrapperBlock>
     );

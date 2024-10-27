@@ -1,5 +1,5 @@
 import Wrapper1280 from "@/shared/ui/Wrapper/1280/Wrapper1280";
-import { ProductPageContent } from "@/widgets/Pages/Product/ProductPageContent";
+import { ProductPageContent } from "@/widgets/Pages/Product/ui/ProductPageContent";
 
 export default function ProductPage() {
     return (
