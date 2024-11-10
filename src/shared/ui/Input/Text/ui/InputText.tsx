@@ -24,10 +24,13 @@ export function InputText({
     type = 'text',
     onChange = () => {},
     defaultValue = '',
-    ...rest }: InputTextProps) {
+    ...rest
+ }: InputTextProps) {
 
+    // REF
     const inputRef = useRef<HTMLInputElement>(null)
 
+    // EFFECT
     useEffect(() => {
         if (inputRef.current && defaultValue) {
             inputRef.current.value = defaultValue   
@@ -36,7 +39,7 @@ export function InputText({
 
     return (
         <WrapperTitleInput title={title}>
-            <input className={cls(variant === EInputTextVariant.W_HOVERED ? cl.wHovered : '', cl.input, cl[variant], className)}
+            <input className={cls(cl.input, cl[variant], className)}
                    ref={inputRef}
                    type={type}
                    defaultValue={defaultValue}

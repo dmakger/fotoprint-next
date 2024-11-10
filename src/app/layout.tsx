@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Geologica } from "next/font/google";
+import { cls } from "@/shared/lib/classes.lib";
 import "./globals.scss";
 import { Providers } from "./_providers/app-provider";
 import { SITE_NAME } from "@/shared/data/seo.data";
 
-const montserrat = Montserrat({ subsets: ["latin", "cyrillic"], variable: '--montserrat-font'});
+
+const geologica = Geologica({ 
+	subsets: ["latin", "cyrillic"], 
+	variable: '--geologica-font',
+	// display: "swap",
+});
+
 
 export const metadata: Metadata = {
 	title: {
@@ -15,17 +22,17 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="ru">
-      <body className={montserrat.className}>
-        <Providers>
-          {children}
-        </Providers>
-      </body>
-    </html>
-  );
+	return (
+		<html lang="ru" className={cls(geologica.className)}>
+			<body>
+				<Providers>
+					{children}
+				</Providers>
+			</body>
+		</html>
+	);
 }

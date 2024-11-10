@@ -41,7 +41,7 @@ export const ImageAPI: FC<ImageAPIProps> = ({
             priority={priority}
             alt={alt ? alt : src}
             width={fill ? undefined : (typeof width === 'string' ? parseInt(width) : width) ?? 100}
-            height={fill ? undefined : (typeof height === 'string' ? parseInt(height) : height) ?? 100}
+            height={fill ? undefined : (typeof height === 'string' ? parseInt(height) : height) ?? undefined}
             quality={quality}
             // layout={layout}
             fill={fill}

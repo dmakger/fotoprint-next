@@ -25,12 +25,13 @@
         height: 100%;
 
         .title {
-            font-weight: var(--fw-bold);
+            // font-weight: var(--fw-bold);
+            font-weight: var(--fw-semi-bold);
         }
 
         .executionTime {
             color: var(--foreground-2);
-            font-weight: var(--fw-semi-bold);
+            // font-weight: var(--fw-semi-bold);
             margin-bottom: 5px;
         }
 

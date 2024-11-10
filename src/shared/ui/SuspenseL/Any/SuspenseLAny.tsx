@@ -1,8 +1,10 @@
 'use client'
 
-import { ISuspenseLItem } from "@/entities/Product/model/suspenseL.model"
 import { useSearchParams } from "next/navigation"
 import { FC, ReactNode, useEffect } from "react"
+
+import { ISuspenseLItem } from "@/entities/Product/model/suspenseL.model"
+
 
 interface SuspenseLAnyProps{
     data: ISuspenseLItem[]

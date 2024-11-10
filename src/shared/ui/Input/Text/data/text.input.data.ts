@@ -1,5 +1,5 @@
 export enum EInputTextVariant {
-    DEFAULT,
-    W_HOVERED,
+    DEFAULT = 'default',
+    W_HOVERED = 'wHovered',
     B_PURPLE = "bPurple",
 }

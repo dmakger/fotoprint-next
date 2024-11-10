@@ -46,7 +46,12 @@ export const ProductPageContentClient: FC<ProductPageContentClientProps> = ({
     useEffect(() => {
         if (!productLoading && product) {
             // Обновляем данные только после полной загрузки
-            setImages?.(product.images || []);
+            setImages?.(_ => {
+                const images = product.image ? [product.image] : []
+                if (product.images)
+                    images.push(...product.images)
+                return images
+            });
             setTitle?.(product.title || null);
             setPrice?.(product.price || 0);
         }

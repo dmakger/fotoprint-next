@@ -4,9 +4,8 @@
     align-items: center;
     border: 3px solid var(--primary);
     border-radius: 100px;
-    max-height: 48px;
+    // max-height: 48px;
     height: 100%;
-    // max-width: 510px;
     width: 100%;
   
     .text {
@@ -15,14 +14,20 @@
       height: 100%;
       border-radius: 100px;
       background-color: transparent;
-      padding-left: 20px;
+      padding: 13px 25px;
     }
   
   
     .right {
       background-color: var(--primary);
       border-radius:  0 100px 100px 0;
-      padding-left: 4px;
+      height: 100%;
+      display: flex;
+      padding-left: 3px;
+
+      .button {
+        padding: 10px 20px;
+      }
     }
   }
   

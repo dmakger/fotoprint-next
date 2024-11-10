@@ -26,10 +26,10 @@ export const ProductPageContent: FC<ProductPageContentProps> = ({ className }) =
     return (
         <div className={cls(cl.block, className)}>
             <div className={cl.main}>
-                {/* <SliderGallery component={ImageProduction} items={images} componentProps={{ width: 100, height: 100 }} /> */}
-                {images.length > 0 && (
+                <SliderGallery component={ImageProduction} items={images} />
+                {/* {images.length > 0 && (
                     <ImageProduction item={images[0]} />
-                )}
+                )} */}
                 <div className={cl.info}>
                     <WrapperBlock variant={WrapperBlockVariant.Wide} size={WrapperBlockSize.Middle}>
                         <h1 className={cl.title}>{title ?? "Нет товара"}</h1>

@@ -26,10 +26,12 @@ export const ProductListContainer:FC<ProductListContainerProps> = ({...rest}) =>
     const {data: productQuery} = ProductAPI.useGetProductsQuery({limit, page: pageNumber, q: search} as IProductProps, {refetchOnMountOrArgChange: true})
     
     return (
-        <SuspenseL.Query setPageNumber={setPageNumber} setLimit={setLimit} setSearch={setSearch}>
-            {productQuery && (
-                <ProductList componentProps={{}} items={productQuery.results} {...rest} />
-            )}
-        </SuspenseL.Query>
+        <SuspenseL>
+            <SuspenseL.Query setPageNumber={setPageNumber} setLimit={setLimit} setSearch={setSearch}>
+                {productQuery && (
+                    <ProductList componentProps={{}} items={productQuery.results} {...rest} />
+                )}
+            </SuspenseL.Query>
+        </SuspenseL>
     )
 }
