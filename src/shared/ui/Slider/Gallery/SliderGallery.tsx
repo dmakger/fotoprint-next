@@ -1,11 +1,10 @@
-import { FC } from "react"
+import { FC, useState } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_SliderGallery.module.scss'
-import { ISlider, ISliderGallery } from "@/shared/model/slider.model";
+import { ISliderGallery } from "@/shared/model/slider.model";
 import { Slider } from "../Slider";
-import { ListDirection } from "@/shared/data/list.data";
-import { SliderPagingVariant } from "@/shared/data/slider.data";
+import { IListTopLevel } from "@/shared/model/list.model";
 
 interface SliderGalleryProps<T> extends ISliderGallery<T> {
 // interface SliderGalleryProps<T> extends ISlider<T> {
@@ -15,21 +14,36 @@ export const SliderGallery = <T extends any>({
     itemPublic,
     itemOther,
 
-    classNameGallery,
+    className,
 
     direction,
     ...rest
 }: SliderGalleryProps<any>) => {
+    // STATE
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    // HANDLE
+    const handleOnClickItem: IListTopLevel<string>['onClickItem'] = (it, index) => {
+        if (index !== undefined) {
+            setActiveIndex(index);
+        }
+    }
+
     return (
-        <div className={cls(cl.wrapper, classNameGallery)}>
-            <Slider isFull={true} gap={0}
-                    {...itemPublic} 
-                    pagingVariant={SliderPagingVariant.Full}
-                    slideWidth={itemPublic?.slideWidth ?? 520}
+        <div className={cls(cl.wrapper, className)}>
+            <Slider {...rest} 
+                    {...itemPublic}
+                    isFull={true} 
                     className={cl.sliderPublic}
-                    // componentProps={{width: 520, height: 520}}
-                    {...rest} />
-            <Slider direction={ListDirection.Row} {...rest} />
+                    setActiveIndex={setActiveIndex}
+                    activeIndex={activeIndex}
+                    />
+            <Slider {...rest} 
+                    {...itemOther} 
+                    setActiveIndex={setActiveIndex}
+                    activeIndex={activeIndex}
+                    onClickItem={handleOnClickItem}
+                    />
         </div>
     )
 }

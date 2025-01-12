@@ -7,7 +7,7 @@ import { ListDirection } from '@/shared/data/list.data';
 import { SliderPagingVariant, SWIPE_THRESHOLD } from '@/shared/data/slider.data';
 import { GalleryCounter } from '../GalleryCounter';
 import { Axis } from '@/shared/data/axis.data';
-import { ButtonArrowWLine } from '../Button/variant/Arrow/WLine/ButtonArrowWLine';
+import { ButtonArrow } from '../Button/variant/Arrow/ButtonArrow';
 
 interface SliderProps<T> extends ISlider<T> {}
 
@@ -39,6 +39,7 @@ export const Slider = <T extends any>({
 
     hasGalleryCounter = false,
 
+    isLoading,
     items,
     direction = ListDirection.Row,
     activeIndex = 0,
@@ -177,6 +178,7 @@ export const Slider = <T extends any>({
 
     // NAVIGATION
     const onPrev = () => {
+        if (isLoading) return;
         setVisibleIndex((prev) => {
             const newIndex = Math.max(0, prev - pagingAmount);
             if (isIndexChangeOnClick) {
@@ -187,6 +189,8 @@ export const Slider = <T extends any>({
     };
 
     const onNext = () => {
+        if (isLoading) return;
+
         setVisibleIndex((prev) => {
             const newIndex = Math.min(items.length - 1, prev + pagingAmount);
             if (isIndexChangeOnClick) {
@@ -198,23 +202,26 @@ export const Slider = <T extends any>({
 
     // Swipe Handlers
     const handleTouchStart = (e: React.TouchEvent) => {
+        if (isLoading) return;
         setStartX(e.touches[0].clientX); // фиксируем начальную точку касания
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
+        if (isLoading) return;
         setEndX(e.touches[0].clientX); // обновляем конечную точку касания
     };
 
     const handleTouchEnd = () => {
-        const distance = endX - startX;
-        if (Math.abs(distance) > SWIPE_THRESHOLD) {
-            // Swipe detected, disable buttons temporarily to prevent double actions
-            if (distance > 0) {
-                onPrev(); // свайп вправо
-            } else if (distance < 0) {
-                onNext(); // свайп влево
-            }
+        if (isLoading) return;
+    const distance = endX - startX;
+    if (Math.abs(distance) > SWIPE_THRESHOLD) {
+        // Swipe detected, disable buttons temporarily to prevent double actions
+        if (distance > 0) {
+            onPrev(); // свайп вправо
+        } else if (endX !== 0) {
+            onNext(); // свайп влево
         }
+    }
     
         setStartX(0);
         setEndX(0);
@@ -227,15 +234,16 @@ export const Slider = <T extends any>({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
         >
-            <ButtonArrowWLine 
+            <ButtonArrow 
                 isSecondary={false} direction={direction}
-                axis={direction === ListDirection.Row ? Axis.Bottom : Axis.Left}
+                axis={direction === ListDirection.Row ? Axis.Left : Axis.Top}
                 onClick={onPrev} sizes={{ width: 20, height: 20 }}
                 className={cls(cl.prevButton, canScrollPrev ? cl.visible : '')} />
             <div ref={sliderRef} className={cls(cl.slider, classNameSlider)}>
                 <List listRef={listRef} items={items} direction={direction}
                       activeIndex={currentIndex}
                       gap={gap}
+                      isLoading={isLoading}
                       className={cls(cl.slideContainer, className)}
                       classNameItem={cls(cl.slide, classNameItem)}
                       {...rest} />
@@ -244,9 +252,9 @@ export const Slider = <T extends any>({
                 <GalleryCounter activeIndex={currentIndex} listLength={items.length}/>
             )}
             
-            <ButtonArrowWLine 
+            <ButtonArrow 
                 isSecondary={false} direction={direction}   
-                axis={direction === ListDirection.Row ? Axis.Top : Axis.Right} 
+                axis={direction === ListDirection.Row ? Axis.Right : Axis.Bottom} 
                 onClick={onNext} sizes={{ width: 20, height: 20 }}
                 className={cls(cl.nextButton, canScrollNext ? cl.visible : '')} />
         </div>

@@ -1,5 +1,5 @@
 import { SliderPagingVariant } from "../data/slider.data";
-import { IList, IListBase, IListTopLevel } from "./list.model";
+import { IList, IListBase, IListBaseOnlyItem, IListTopLevel } from "./list.model";
 
 export interface ISliderGalleryTop<T> extends IListBase<T> {
     itemPublic?: ISliderGalleryItem
@@ -20,12 +20,13 @@ export interface ISliderGalleryItem {
     pagingAmount?: number
     slideWidth?: number
     isIndexChangeOnClick?: boolean
+    componentProps?: IListBaseOnlyItem<any>["componentProps"]
     classNameSlider?: string,
     classNameWrapper?: string,
+
+    gap?: IListBase<any>['gap']
+    direction?: IListBase<any>['direction']
 }
-
-
-
 
 
 export interface ISliderBase<T> extends IListBase<T> {

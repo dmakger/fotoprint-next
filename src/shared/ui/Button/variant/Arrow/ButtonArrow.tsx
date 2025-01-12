@@ -1,15 +1,15 @@
 import { FC } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
-import cl from './_ButtonArrowWLine.module.scss'
-import { Button, IButton } from "../../../ui/Button";
-import { ButtonVariant } from "../../../model/button.model";
+import cl from './_ButtonArrow.module.scss'
+import { Button, IButton } from "../../ui/Button";
+import { ButtonVariant } from "../../model/button.model";
 import { IImageSize } from "@/shared/model/image.model";
 import { ListDirection } from "@/shared/data/list.data";
 import { Axis } from "@/shared/data/axis.data";
 import { ARROW__BLACK__ICON } from "@/shared/data/icon/arrow.data.icon";
 
-interface ButtonArrowWLineProps extends IButton {
+interface ButtonArrowProps extends IButton {
     isSecondary?: boolean
     axis?: Axis
     direction?: ListDirection
@@ -18,7 +18,7 @@ interface ButtonArrowWLineProps extends IButton {
     className?: string,
 }
 
-export const ButtonArrowWLine:FC<ButtonArrowWLineProps> = ({
+export const ButtonArrow:FC<ButtonArrowProps> = ({
     isSecondary=true, 
     axis, direction=ListDirection.Row,
     onClick, sizes, 
@@ -27,6 +27,7 @@ export const ButtonArrowWLine:FC<ButtonArrowWLineProps> = ({
     return (
         <Button afterImage={ARROW__BLACK__ICON} afterProps={{axis, width: sizes?.width, height: sizes?.height}} 
                 variant={ButtonVariant.DEFAULT} onClick={onClick}
-                className={cls(cl.button, cl[direction], className)} {...rest}/>
+                className={cls(cl.button, cl[direction], axis ? cl[axis] : '', className)} 
+                {...rest}/>
     )
 }

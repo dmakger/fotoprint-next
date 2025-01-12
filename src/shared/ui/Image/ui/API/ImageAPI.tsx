@@ -34,19 +34,35 @@ export const ImageAPI: FC<ImageAPIProps> = ({
     }
 
     const imageHTML = (
-        <Image 
-            unoptimized={true}
+        // <Image 
+        //     unoptimized={true}
+        //     onClick={handleOnClickImage}
+        //     src={typeof src === "string" ? getImage(src) : src}
+        //     priority={priority}
+        //     alt={alt ? alt : src}
+        //     width={fill ? undefined : (typeof width === 'string' ? parseInt(width) : width) ?? 100}
+        //     height={fill ? undefined : (typeof height === 'string' ? parseInt(height) : height) ?? undefined}
+        //     quality={quality}
+        //     // layout={layout}
+        //     fill={fill}
+        //     className={cls(cl.image, className)}>
+        // </Image>
+
+        <Image
             onClick={handleOnClickImage}
             src={typeof src === "string" ? getImage(src) : src}
-            priority={priority}
-            alt={alt ? alt : src}
+            unoptimized={true}
+            priority={priority} 
+            alt={alt || 'alt'}
             width={fill ? undefined : (typeof width === 'string' ? parseInt(width) : width) ?? 100}
-            height={fill ? undefined : (typeof height === 'string' ? parseInt(height) : height) ?? undefined}
-            quality={quality}
-            // layout={layout}
+            height={fill ? undefined : (typeof height === 'string' ? parseInt(height) : height) ?? 100}
+            quality={quality ? quality : 60}
             fill={fill}
-            className={cls(cl.image, className)}>
-        </Image>
+            className={cls(cl.image, className)}
+            loading={priority ? undefined : 'lazy'}
+            // placeholder="blur" // Этот параметр заставит браузер сначала показывать размытую версию изображения
+            // blurDataURL={getDefaultImageAPI(variantDefault)} // Можно использовать базовое изображение для размытия
+            />
     )
 
     if (fill && (width || height)) {

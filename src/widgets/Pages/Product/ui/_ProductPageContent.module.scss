@@ -5,7 +5,9 @@
         display: flex;
         gap: 20px;
 
-        .slider {}
+        .slider {
+            max-width: 520px;
+        }
         .info {
             display: flex;
             flex-direction: column;

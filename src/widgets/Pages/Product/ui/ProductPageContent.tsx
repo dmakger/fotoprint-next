@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_ProductPageContent.module.scss';
 import { Price } from "@/shared/ui/Price/Price";
@@ -12,6 +12,7 @@ import { ImageProduction } from "@/shared/ui/Image/ui/Production/ui/ImageProduct
 import { ProductPageContentClient } from "../components/ProductPageContentClient";
 import { WrapperBlock } from "@/shared/ui/Wrapper/Block/ui/WrapperBlock";
 import { WrapperBlockSize, WrapperBlockVariant } from "@/shared/ui/Wrapper/Block/data/block.wrapper.data";
+import { SliderPagingVariant } from "@/shared/data/slider.data";
 
 interface ProductPageContentProps {
     className?: string;
@@ -26,10 +27,23 @@ export const ProductPageContent: FC<ProductPageContentProps> = ({ className }) =
     return (
         <div className={cls(cl.block, className)}>
             <div className={cl.main}>
-                <SliderGallery component={ImageProduction} items={images} />
-                {/* {images.length > 0 && (
-                    <ImageProduction item={images[0]} />
-                )} */}
+                <SliderGallery 
+                    component={ImageProduction} 
+                    items={images}
+                    itemPublic={{
+                        pagingVariant: SliderPagingVariant.Full,
+                        isIndexChangeOnClick: true,
+                        componentProps: {width: 520, height: 520},
+                        gap: 5,
+                    }}
+                    itemOther={{
+                        pagingVariant: SliderPagingVariant.Full,
+                        isIndexChangeOnClick: false,
+                        componentProps: {width: 100, height: 100},
+                        gap: 10,
+                    }}
+                    className={cl.slider}
+                    />
                 <div className={cl.info}>
                     <WrapperBlock variant={WrapperBlockVariant.Wide} size={WrapperBlockSize.Middle}>
                         <h1 className={cl.title}>{title ?? "Нет товара"}</h1>

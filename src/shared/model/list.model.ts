@@ -7,6 +7,7 @@ import { TAnyParams } from "./params.model";
  * Интерфейс необходимый для реализации списка без учета `ListItem`.  
  */
 export interface IListBase<T> extends TAnyParams {
+    isLoading?: boolean
     items: T[];
     activeId?: number | string
     activeIndex?: number

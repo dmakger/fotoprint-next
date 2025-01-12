@@ -52,14 +52,10 @@
   
     .prevButton {
       left: -50px;
-      border-width: 1px 0 1px 1px;
-      border-radius: 0 20px 20px 0;
     }
     
     .nextButton {
       right: -50px;
-      border-width: 1px 1px 1px 0;
-      border-radius: 20px 0 0 20px;
     }  
   }
   .column {
@@ -72,14 +68,10 @@
   
     .prevButton {
       top: -50px;
-      border-width: 1px 0 1px 1px;
-      border-radius: 20px 20px 0 0;
     }
     
     .nextButton {
       bottom: -50px  ;
-      border-width: 1px 1px 1px 0;
-      border-radius: 0 0 20px 20px;
     }  
   }
   
