@@ -10,12 +10,12 @@ interface IGalleryCounter{
 
 export const GalleryCounter = ({
     className,
-    activeIndex,
+    activeIndex = 0,
     listLength
 }: IGalleryCounter) => {
     return (
         <div className={cls(cl.GalleryCounter, className)}>
-            <span className={cl.activeItem}>{activeIndex}</span>
+            <span className={cl.activeItem}>{activeIndex+1}</span>
             /
             <span className={cl.outOfNumber}>{listLength}</span>
         </div>

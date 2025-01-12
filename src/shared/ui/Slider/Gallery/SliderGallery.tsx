@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { useState } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_SliderGallery.module.scss'
@@ -11,14 +11,19 @@ interface SliderGalleryProps<T> extends ISliderGallery<T> {
 }
 
 export const SliderGallery = <T extends any>({
-    itemPublic,
-    itemOther,
+    itemPublic: itemPublicOut,
+    itemOther: itemOtherOut,
 
     className,
 
     direction,
+    hasGalleryCounter,
     ...rest
 }: SliderGalleryProps<any>) => {
+    // GET
+    const {show: showPublic, ...itemPublic} = itemPublicOut || {};
+    const {show: showOther, ...itemOther} = itemOtherOut || {};
+
     // STATE
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -31,19 +36,23 @@ export const SliderGallery = <T extends any>({
 
     return (
         <div className={cls(cl.wrapper, className)}>
-            <Slider {...rest} 
-                    {...itemPublic}
-                    isFull={true} 
-                    className={cl.sliderPublic}
-                    setActiveIndex={setActiveIndex}
-                    activeIndex={activeIndex}
-                    />
-            <Slider {...rest} 
-                    {...itemOther} 
-                    setActiveIndex={setActiveIndex}
-                    activeIndex={activeIndex}
-                    onClickItem={handleOnClickItem}
-                    />
+            {(showPublic !== false) && (
+                <Slider {...rest} 
+                        {...itemPublic}
+                        className={cl.sliderPublic}
+                        setActiveIndex={setActiveIndex}
+                        hasGalleryCounter={hasGalleryCounter}
+                        activeIndex={activeIndex}
+                        />
+            )}
+            {(showOther !== false) && (
+                <Slider {...rest} 
+                        {...itemOther} 
+                        setActiveIndex={setActiveIndex}
+                        activeIndex={activeIndex}
+                        onClickItem={handleOnClickItem}
+                        />
+            )}
         </div>
     )
 }

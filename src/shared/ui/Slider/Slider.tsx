@@ -61,6 +61,8 @@ export const Slider = <T extends any>({
     const [visibleIndex, setVisibleIndex] = useState(activeIndex);
     const [pagingAmount, setPagingAmount] = useState(pagingOutAmount);
 
+    // console.log('qwe pagingAmount', pagingAmount,)
+    
     // Swipe State
     const [startX, setStartX] = useState(0);
     const [endX, setEndX] = useState(0);
@@ -82,7 +84,10 @@ export const Slider = <T extends any>({
 
     // pagingAmount
     useEffect(() => {
-        if (pagingVariant === SliderPagingVariant.Amount) return
+        if (pagingVariant === SliderPagingVariant.Amount) {
+            setPagingAmount(prev => !prev || Number.isNaN(prev) ? 1 : prev)
+            return;
+        }
         setPagingAmount(() => Math.floor(sliderSize / slideSize) ?? 1)
     }, [pagingVariant, sliderSize, slideSize])
 
@@ -179,6 +184,8 @@ export const Slider = <T extends any>({
     // NAVIGATION
     const onPrev = () => {
         if (isLoading) return;
+
+        console.log('qwe onPrev')
         setVisibleIndex((prev) => {
             const newIndex = Math.max(0, prev - pagingAmount);
             if (isIndexChangeOnClick) {
@@ -191,6 +198,7 @@ export const Slider = <T extends any>({
     const onNext = () => {
         if (isLoading) return;
 
+        console.log('qwe onNext')
         setVisibleIndex((prev) => {
             const newIndex = Math.min(items.length - 1, prev + pagingAmount);
             if (isIndexChangeOnClick) {
@@ -202,26 +210,30 @@ export const Slider = <T extends any>({
 
     // Swipe Handlers
     const handleTouchStart = (e: React.TouchEvent) => {
+        console.log('qwe handleTouchStart')
         if (isLoading) return;
         setStartX(e.touches[0].clientX); // фиксируем начальную точку касания
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
+        console.log('qwe handleTouchMove', e.touches[0].clientX)
         if (isLoading) return;
         setEndX(e.touches[0].clientX); // обновляем конечную точку касания
     };
 
     const handleTouchEnd = () => {
+        console.log('qwe handleTouchEnd')
         if (isLoading) return;
-    const distance = endX - startX;
-    if (Math.abs(distance) > SWIPE_THRESHOLD) {
-        // Swipe detected, disable buttons temporarily to prevent double actions
-        if (distance > 0) {
-            onPrev(); // свайп вправо
-        } else if (endX !== 0) {
-            onNext(); // свайп влево
+
+        const distance = endX - startX;
+        if (Math.abs(distance) > SWIPE_THRESHOLD) {
+            // Swipe detected, disable buttons temporarily to prevent double actions
+            if (distance > 0) {
+                onPrev(); // свайп вправо
+            } else if (endX !== 0) {
+                onNext(); // свайп влево
+            }
         }
-    }
     
         setStartX(0);
         setEndX(0);

@@ -7,6 +7,7 @@ interface ListProps<T> extends IList<T> {}
 
 export const List = <T extends any>({
     items, 
+    isLoading,
     listRef,
     component: ListItemComponent,
     componentProps,

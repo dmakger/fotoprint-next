@@ -5,9 +5,6 @@ export interface ISliderGalleryTop<T> extends IListBase<T> {
     itemPublic?: ISliderGalleryItem
     itemOther?: ISliderGalleryItem
 
-    isFull?: boolean
-    isIndexChangeOnClick?: boolean
-    classNameGallery?: string
     hasGalleryCounter?: boolean
 }
 
@@ -16,6 +13,8 @@ export interface ISliderGallery<T> extends ISliderGalleryTop<T> {
 }
 
 export interface ISliderGalleryItem {
+    show?: boolean
+    isFull?: boolean
     pagingVariant?: SliderPagingVariant
     pagingAmount?: number
     slideWidth?: number

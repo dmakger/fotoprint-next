@@ -5,35 +5,56 @@
         display: flex;
         gap: 20px;
 
-        .slider {
-            max-width: 520px;
+        .left {
+            .slider {
+                position: sticky;
+                top: 16px;
+                max-width: 520px;
+            }
         }
         .info {
             display: flex;
             flex-direction: column;
             width: 100%;
             gap: 10px;
+        }
 
-            .title {
+        // TITLE AND PRICE BLOCK
+        .title {
+            font-weight: var(--fw-semi-bold);
+            font-size: var(--fs-elg);
+        }
+
+        .wrapperPrice {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px 0;
+            border-top: 1px solid var(--gray-3);
+            
+            .price {
                 font-weight: var(--fw-semi-bold);
                 font-size: var(--fs-elg);
             }
 
-            .wrapperPrice {
-                margin-top: 15px;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                padding: 10px 0;
-                border-top: 1px solid var(--gray-3);
-                
-                .price {
-                    font-weight: var(--fw-semi-bold);
-                    font-size: var(--fs-elg);
-                }
-    
-                .addCart {
-                    width: 100%;
+            .addCart {
+                width: 100%;
+            }
+        }
+    }
+
+
+}
+
+@media (max-width: 1024px) {
+    .block {
+        .main {
+            flex-direction: column;
+
+            .left {
+                .slider {
+                    max-width: none;
                 }
             }
         }
