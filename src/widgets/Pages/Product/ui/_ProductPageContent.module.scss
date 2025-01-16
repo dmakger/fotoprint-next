@@ -5,13 +5,6 @@
         display: flex;
         gap: 20px;
 
-        .left {
-            .slider {
-                position: sticky;
-                top: 16px;
-                max-width: 520px;
-            }
-        }
         .info {
             display: flex;
             flex-direction: column;

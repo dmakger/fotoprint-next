@@ -16,5 +16,15 @@ export enum ImageProductionVariant {
  */
 export enum ImageProductionColor {
     Empty = 'empty',
-    White = 'white',
+    Gray = 'gray',
+}
+
+
+/**
+ * Цвета `ImageProduction`  
+ * Есть зависимость от css
+ */
+export enum ImageProductionFit {
+    None = 'none',
+    Contain = 'contain',
 }

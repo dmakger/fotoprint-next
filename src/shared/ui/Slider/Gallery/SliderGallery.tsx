@@ -28,7 +28,7 @@ export const SliderGallery = <T extends any>({
     const [activeIndex, setActiveIndex] = useState(0);
 
     // HANDLE
-    const handleOnClickItem: IListTopLevel<string>['onClickItem'] = (it, index) => {
+    const handleOnClickItem: IListTopLevel<string>['onClickItem'] = (_, index) => {
         if (index !== undefined) {
             setActiveIndex(index);
         }

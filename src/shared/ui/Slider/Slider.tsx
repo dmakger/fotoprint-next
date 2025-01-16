@@ -185,7 +185,6 @@ export const Slider = <T extends any>({
     const onPrev = () => {
         if (isLoading) return;
 
-        console.log('qwe onPrev')
         setVisibleIndex((prev) => {
             const newIndex = Math.max(0, prev - pagingAmount);
             if (isIndexChangeOnClick) {
@@ -198,7 +197,6 @@ export const Slider = <T extends any>({
     const onNext = () => {
         if (isLoading) return;
 
-        console.log('qwe onNext')
         setVisibleIndex((prev) => {
             const newIndex = Math.min(items.length - 1, prev + pagingAmount);
             if (isIndexChangeOnClick) {
@@ -210,19 +208,16 @@ export const Slider = <T extends any>({
 
     // Swipe Handlers
     const handleTouchStart = (e: React.TouchEvent) => {
-        console.log('qwe handleTouchStart')
         if (isLoading) return;
         setStartX(e.touches[0].clientX); // фиксируем начальную точку касания
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
-        console.log('qwe handleTouchMove', e.touches[0].clientX)
         if (isLoading) return;
         setEndX(e.touches[0].clientX); // обновляем конечную точку касания
     };
 
     const handleTouchEnd = () => {
-        console.log('qwe handleTouchEnd')
         if (isLoading) return;
 
         const distance = endX - startX;

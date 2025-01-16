@@ -9,13 +9,11 @@ import { Price } from "@/shared/ui/Price/Price";
 import { PriceVariant } from "@/shared/data/price.data";
 import { Button } from "@/shared/ui/Button";
 import { ButtonColor, ButtonSize } from "@/shared/ui/Button/model/button.model";
-import { SliderGallery } from "@/shared/ui/Slider/Gallery/SliderGallery";
-import { ImageProduction } from "@/shared/ui/Image/ui/Production/ui/ImageProduction";
 import { ProductPageContentClient } from "../components/ProductPageContentClient";
 import { WrapperBlock } from "@/shared/ui/Wrapper/Block/ui/WrapperBlock";
 import { WrapperBlockSize, WrapperBlockVariant } from "@/shared/ui/Wrapper/Block/data/block.wrapper.data";
-import { SliderPagingVariant } from "@/shared/data/slider.data";
 import { HandleSize } from "@/shared/ui/Handle/Size/HandleSize";
+import { SliderGalleryImageProduction } from "@/features/Slider/Gallery/ImageProduction/SliderGalleryImageProduction";
 
 interface ProductPageContentProps {
     className?: string;
@@ -48,26 +46,7 @@ export const ProductPageContent: FC<ProductPageContentProps> = ({ className }) =
                 <div className={cl.main}>
                     {is1024 && htmlTitle}
                     <div className={cl.left}>
-                        <SliderGallery 
-                            component={ImageProduction} 
-                            items={images}
-                            itemPublic={{
-                                pagingVariant: SliderPagingVariant.Amount,
-                                slideWidth: 520,
-                                isIndexChangeOnClick: true,
-                                componentProps: {width: 520, height: 520},
-                                gap: 5,
-                            }}
-                            itemOther={{
-                                show: !is1024 && images.length > 1,
-                                pagingVariant: SliderPagingVariant.Full,
-                                isIndexChangeOnClick: false,
-                                componentProps: {width: 100, height: 100},
-                                gap: 10,
-                            }}
-                            hasGalleryCounter={is1024}
-                            className={cl.slider}
-                            />
+                        <SliderGalleryImageProduction items={images} isImageFullWindow={true} />
                     </div>
                     <div className={cl.info}>
                         {!is1024 && htmlTitle}

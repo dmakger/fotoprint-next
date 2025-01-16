@@ -18,9 +18,17 @@
 
     .image {
         border-radius: inherit;
-        transition: .2s;
+        transition: inherit;
     }
 }
+
+// >>> ========={ FIT }========= >>>
+
+// CONTAIN
+.contain {
+    object-fit: contain;
+}
+// <<< ========={ FIT }========= <<<
 
 // >>> ========={ COLOR }========= >>>
 
@@ -29,9 +37,9 @@
     background-color: var(--empty);
 }
 
-// WHITE
-.white {
-    background-color: var(--background-2);
+// GRAY
+.gray {
+    background-color: var(--background-4);
 }
 
 // <<< ========={ COLOR }========= <<<
