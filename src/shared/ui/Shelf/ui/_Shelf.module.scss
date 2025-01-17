@@ -1,9 +1,31 @@
 .shelf {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+
+    .shelfContent {
+        gap: 20px !important;
+    }
 
     .header {
         display: flex;
+        align-items: center;
         justify-content: space-between;
+        
+        .title {
+            font-size: var(--fs-mlg);
+            font-weight: var(--fw-semi-bold);
+            padding-left: 10px;
+            transition: .2s;
+
+            &.isLink {
+                &:hover {
+                    color: var(--primary);
+                }
+            }
+
+            .titleLink {
+                font-size: inherit;
+                font-weight: inherit;
+            }
+        }
     }
 }

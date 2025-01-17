@@ -8,15 +8,23 @@ import { TAnyParams } from "./params.model";
  */
 export interface IListBase<T> extends TAnyParams {
     isLoading?: boolean
+    loadingProps?: IListLoadingProps
+    componentLoading?: React.FC<TAnyParams>;
+
     items: T[];
+    direction?: ListDirection;
+    gap?: number
+    
     activeId?: number | string
     activeIndex?: number
     setActiveIndex?: Dispatch<SetStateAction<number>> | Dispatch<SetStateAction<number | undefined>>
+
     listRef?: React.RefObject<HTMLDivElement>
     generateKey?: (it: T, index?: number) => number | string
-    direction?: ListDirection;
-    gap?: number
+    isScrollToTopNeeded?: boolean
+
     className?: string;
+    classNameItem?: string;
 }
 
 
@@ -29,7 +37,6 @@ export interface IListBaseOnlyItem<T> {
     onClickDelete?: TListItemOnClick<T>
     classNameItem?: string;
 }
-
 
 
 /**
@@ -65,3 +72,12 @@ export interface IListItem<T> extends TAnyParams {
  * Функция нажатия на `ListItem`
  */
 export type TListItemOnClick<T> = (it: T, index?: number) => void
+
+
+/**
+ * Пропсы для списка загрузки 
+ */
+export interface IListLoadingProps {
+    length: number
+    className?: string
+}

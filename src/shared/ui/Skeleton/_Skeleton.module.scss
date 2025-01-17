@@ -1,0 +1,27 @@
+.skeleton {
+    background: linear-gradient(
+      to right,
+      var(--skeleton-foreground-1) 0%,
+      var(--skeleton-foreground-2) 20%,
+      var(--skeleton-foreground-1) 40%
+    );
+
+    background-size: 800px 100%;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    background-color: var(--skeleton-background);
+  }
+  
+  .animation {
+    // animation: shimmer 1.5s linear infinite;
+    animation: shimmer 3s linear infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -800px 0;
+    }
+    100% {
+      background-position: 800px 0;
+    }
+  }

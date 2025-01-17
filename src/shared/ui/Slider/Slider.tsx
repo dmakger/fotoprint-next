@@ -245,7 +245,7 @@ export const Slider = <T extends any>({
                 isSecondary={false} direction={direction}
                 axis={direction === ListDirection.Row ? Axis.Left : Axis.Top}
                 onClick={onPrev} sizes={{ width: 20, height: 20 }}
-                className={cls(cl.prevButton, canScrollPrev ? cl.visible : '')} />
+                className={cls(cl.prevButton, (canScrollPrev && !isLoading) ? cl.visible : '')} />
             <div ref={sliderRef} className={cls(cl.slider, classNameSlider)}>
                 <List listRef={listRef} items={items} direction={direction}
                       activeIndex={currentIndex}
@@ -263,7 +263,7 @@ export const Slider = <T extends any>({
                 isSecondary={false} direction={direction}   
                 axis={direction === ListDirection.Row ? Axis.Right : Axis.Bottom} 
                 onClick={onNext} sizes={{ width: 20, height: 20 }}
-                className={cls(cl.nextButton, canScrollNext ? cl.visible : '')} />
+                className={cls(cl.nextButton, (canScrollNext && !isLoading) ? cl.visible : '')} />
         </div>
     );
 }

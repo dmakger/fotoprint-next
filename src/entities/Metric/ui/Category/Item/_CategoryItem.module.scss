@@ -1,0 +1,15 @@
+.category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: var(--tertiary);
+    transition: .2s;
+
+    .title {
+        font-size: var(--fs-sm);
+        transition: inherit;
+    }
+}

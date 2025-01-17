@@ -2,11 +2,14 @@ import { cls } from '@/shared/lib/classes.lib';
 import cl from './_Shelf.module.scss'
 
 import { IShelf } from "../model/shelf.model";
-import { Button } from "../../Button";
+import { Button, ButtonVariant } from "../../Button";
 import { Slider } from "../../Slider/Slider";
+import { WrapperBlock } from '../../Wrapper/Block/ui/WrapperBlock';
+import Link from 'next/link';
+import { ButtonColor, ButtonSize } from '../../Button/model/button.model';
 
-interface ShelfProps<T> extends IShelf<T>{
-}
+
+interface ShelfProps<T> extends IShelf<T>{}
 
 export const Shelf = <T extends any>({
     title,
@@ -16,18 +19,28 @@ export const Shelf = <T extends any>({
     sliderParams,
     
     className,
-    classNameTitle,
-    ...rest
+    classNameTitle
 }: ShelfProps<T>) => {
     return (
-        <div className={cls(cl.shelf, className)}>
+        <WrapperBlock className={cls(cl.shelf, className)} classNameContent={cls(cl.shelfContent, className)}>
             <div className={cl.header}>
-                <h2 className={cls(cl.title, classNameTitle)}>{title}</h2>
+                <h2 className={cls(cl.title, href ? cl.isLink : '', classNameTitle)}>
+                    {href ? (
+                        <Link href={href} className={cl.titleLink}>{title}</Link>
+                    ) : (
+                        <>{title}</>
+                    )}
+                </h2>
                 {href && (
-                    <Button href={href} title={hrefTitle ?? "Посмотреть всё"} />
+                    <Button href={href} 
+                            title={hrefTitle ?? "Посмотреть"}
+                            variant={ButtonVariant.CONTENT}
+                            size={ButtonSize.Small} 
+                            color={ButtonColor.Tertiary} />
                 )}
             </div>
-            <Slider {...sliderParams} />
-        </div>
+            <Slider {...sliderParams}
+                    gap={sliderParams.gap ?? 10} />
+        </WrapperBlock>
     )
 }

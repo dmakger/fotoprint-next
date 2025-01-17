@@ -4,10 +4,11 @@
     border-radius: 15px;
     background-color: var(--background-2);
     border: 2px solid var(--background-1);
+    min-width: 280px;
     transition: .2s;
 
     &:hover {
-        border-color: var(--green-1);
+        border-color: var(--green-2);
     }
 
     .image {

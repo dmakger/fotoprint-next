@@ -1,9 +1,8 @@
 import { IQuery } from "@/shared/model/query.model"
 import { IProduct } from "./product.model"
+import { IRequest } from "@/shared/model/request.model"
 
-export interface IProductProps {
-    limit?: number
-    page?: number
+export interface IProductRequest extends IRequest {
     ordering?: string
     category_id?: number
     q?: string

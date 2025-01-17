@@ -1,22 +1,32 @@
+import React from 'react';
+
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_List.module.scss'
+
 import { IList } from "../../../model/list.model";
 import { DEFAULT__LIST_DIRECTION } from "@/shared/data/list.data";
+import { useScrollToTop } from '@/shared/hooks/useScrollToTop.hooks';
 
 interface ListProps<T> extends IList<T> {}
 
 export const List = <T extends any>({
-    items, 
     isLoading,
+    loadingProps,
+    componentLoading: ListItemComponentLoading,
+    
+    componentBetween: ListItemComponentBetween,
+    componentAfter: ListItemComponentAfter,
+    
+    items, 
     listRef,
     component: ListItemComponent,
     componentProps,
+    isScrollToTopNeeded = true,
     direction = DEFAULT__LIST_DIRECTION,
     activeId,
     activeIndex,
     gap,
-    onClickItem = ()=>{},
-    onClickDelete = ()=>{},
+    onClickItem = () => {},
     generateKey,
     style,
     className,
@@ -24,26 +34,45 @@ export const List = <T extends any>({
     ...rest
 }: ListProps<T>) => {
 
+    // Loading Props
+    const {length: lengthLoading,  ...updatedLoadingProps} = loadingProps ?? {}
+
     // Объединяем className из componentProps с classNameItem, если они оба существуют
     const updatedComponentProps = {
         ...componentProps,
         className: cls(componentProps?.className, classNameItem)
     };
 
+    isScrollToTopNeeded && useScrollToTop();
+
     return (
         <div ref={listRef} style={{ gap: `${gap}px` }} className={cls(cl.list, cl[direction], className)} {...rest}>
-            {items.map((it, index) => (
-                <ListItemComponent
-                    {...updatedComponentProps}
-                    item={it}
-                    style={style}
-                    onClick={() => onClickItem(it, index)}
-                    onClickDelete={() => onClickDelete(it, index)}
-                    activeId={activeId}
-                    isActive={activeIndex === index || !!(it && typeof it === 'object' && 'id' in it && it.id && activeId === it.id)}
-                    key={generateKey ? generateKey(it, index) : (it && typeof it === 'object' && 'id' in it ? it.id as number : index)}
-                />
-            ))}
+            {(isLoading && !!ListItemComponentLoading) ? (
+                <>
+                    {Array.from({ length: lengthLoading ?? 5 }).map((_, index) => (
+                        <React.Fragment key={index}>
+                            <ListItemComponentLoading {...updatedLoadingProps} />
+                        </React.Fragment>
+                    ))}
+                </>
+            ) : (
+                items.map((it, index) => (
+                    <React.Fragment key={generateKey ? generateKey(it, index) : (it && typeof it === 'object' && 'id' in it ? it.id as number : index)}>
+                        <ListItemComponent
+                            {...updatedComponentProps}
+                            item={it}
+                            style={style}
+                            onClick={() => onClickItem(it, index)}
+                            activeId={activeId}
+                            isActive={activeIndex === index || !!(it && typeof it === 'object' && 'id' in it && it.id && activeId === it.id)}
+                        />
+                        {(ListItemComponentBetween && index + 1 !== items.length) && (
+                            <>{ListItemComponentBetween}</>
+                        )}
+                        {ListItemComponentAfter}
+                    </React.Fragment>
+                ))
+            )}
         </div>
-    )
+    );
 }

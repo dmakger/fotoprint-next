@@ -2,11 +2,10 @@
 
 import { FC } from "react"
 
-import { cls } from '@/shared/lib/classes.lib';
-import cl from './_PopularityProductShelf.module.scss'
 import { ShelfProduct } from "@/features/Shelf/Product/ShelfProduct";
-import { IProductProps } from "@/entities/Product/model/props.product.model";
+import { IProductRequest } from "@/entities/Product/model/props.product.model";
 import { ProductAPI } from "@/entities/Product/api/product.api";
+import { MAIN_PAGES } from "@/config/pages-url.config";
 
 interface PopularProductShelfProps{
     className?: string,
@@ -14,15 +13,18 @@ interface PopularProductShelfProps{
 
 export const PopularProductShelf:FC<PopularProductShelfProps> = ({className}) => {
     // API
-    const {data: productQuery} = ProductAPI.useGetProductsQuery({
+    const {data: productQuery, isLoading} = ProductAPI.useGetProductsQuery({
         limit: 12,
         page: 1,
-    } as IProductProps, {refetchOnMountOrArgChange: true})
+    } as IProductRequest, {refetchOnMountOrArgChange: true})
 
     
     return (
-        <ShelfProduct sliderParams={{
-            items: productQuery?.results ?? []
-        }} />
+        <ShelfProduct href={MAIN_PAGES.CATALOG} 
+                      title={"Хит недели"}
+                      sliderParams={{
+                        items: productQuery?.results ?? [],
+                        isLoading: isLoading
+                      }} />
     )
 }

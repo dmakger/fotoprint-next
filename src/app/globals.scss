@@ -22,6 +22,9 @@
   --gray-3: #CACBD3;
   --gray-4: #E6E6EA;
   --gray-5: #F4F4F6;
+  --gray-6: #F5F5F5;
+  --gray-7: #EFEFEF;
+  // 5 6 7
 
   --green-1: #1CAC59;
   --green-2: #2ED573;
@@ -64,6 +67,15 @@
   --tertiary-surface: var(--gray-4);
   --tertiary-surface-sub: var(--gray-4);
 
+  // skeleton
+  --skeleton-foreground-1: var(--gray-5);
+  --skeleton-foreground-2: var(--gray-6);
+  --skeleton-background: var(--gray-7); 
+  // --gray-5: #F4F4F6;
+  // --gray-6: #F5F5F5;
+  // --gray-7: #E1E1E1;
+
+  // ERROR
   --error: var(--red);
 
 

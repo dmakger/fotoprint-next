@@ -20,9 +20,6 @@ export const CombinationOption:FC<CombinationOptionProps> = ({
 
     const html = (
         <OptionItem {...rest} item={option} isActive={combination.isActive} />
-        // <button onClick={handleOnClick} className={cls(characteristic.isActive ? cl.active : '', cl.block, className)}>
-        //     <span className={cl.title}>{characteristic.characteristic.title} {characteristic.id} {characteristic.productCombinationId}</span>
-        // </button>
     )
 
     if (!href) 
