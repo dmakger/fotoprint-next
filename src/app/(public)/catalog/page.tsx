@@ -1,4 +1,4 @@
-import { ProductListContainer } from "@/entities/Product/ui/List/Container/ProductListContainer";
+import { ProductListContainer } from "@/entities/Product/ui/Base/List/Container/ProductListContainer";
 import { ListDirection } from "@/shared/data/list.data";
 import Wrapper1280 from "@/shared/ui/Wrapper/1280/Wrapper1280";
 

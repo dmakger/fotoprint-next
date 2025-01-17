@@ -4,10 +4,10 @@ import Link from "next/link";
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_ProductItem.module.scss'
 import { IListItem } from "@/shared/model/list.model";
-import { IProduct } from "../../model/product.model";
+import { IProduct } from "../../../model/product.model";
 import { ImageAPI } from "@/shared/ui/Image/ui/API/ImageAPI";
 import { Price } from "@/shared/ui/Price/Price";
-import { getProductImage } from "../../lib/image.product.lib";
+import { getProductImage } from "../../../lib/image.product.lib";
 import { getTextByExecutionTime } from "@/entities/Metric/lib/executionTime.metric.lib";
 import { MAIN_PAGES } from "@/config/pages-url.config";
 

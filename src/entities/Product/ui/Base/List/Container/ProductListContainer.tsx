@@ -29,7 +29,7 @@ export const ProductListContainer:FC<ProductListContainerProps> = ({...rest}) =>
         <SuspenseL>
             <SuspenseL.Query setPageNumber={setPageNumber} setLimit={setLimit} setSearch={setSearch}>
                 {productQuery && (
-                    <ProductList componentProps={{}} items={productQuery.results} {...rest} />
+                    <ProductList items={productQuery.results} {...rest} />
                 )}
             </SuspenseL.Query>
         </SuspenseL>
