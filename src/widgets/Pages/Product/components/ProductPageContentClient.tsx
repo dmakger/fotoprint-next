@@ -15,7 +15,7 @@ import { WrapperBlock } from "@/shared/ui/Wrapper/Block/ui/WrapperBlock";
 
 interface ProductPageContentClientProps {
     setImages?: Dispatch<SetStateAction<string[]>>;
-    setTitle?: Dispatch<SetStateAction<string | null>>;
+    setTitle?: Dispatch<SetStateAction<string | undefined>>;
     setPrice?: Dispatch<SetStateAction<number>>;
     className?: string;
 }
@@ -52,7 +52,7 @@ export const ProductPageContentClient: FC<ProductPageContentClientProps> = ({
                     images.push(...product.images)
                 return images
             });
-            setTitle?.(product.title || null);
+            setTitle?.(product.title || undefined);
             setPrice?.(product.price || 0);
         }
     }, [product, productLoading]);

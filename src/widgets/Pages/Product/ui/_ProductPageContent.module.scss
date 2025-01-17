@@ -40,6 +40,16 @@
 
 }
 
+// .stickyTitle {
+//     position: sticky;
+//     top: 0; /* Расстояние от верхнего края */
+//     z-index: 10; /* Чтобы элемент оставался поверх других */
+//     background-color: var(--white); /* Для сохранения фона */
+//     padding: 10px 0; /* По желанию */
+//     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Небольшая тень для отделения */
+
+// }
+
 @media (max-width: 1024px) {
     .block {
         .main {

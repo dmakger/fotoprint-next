@@ -10,7 +10,8 @@
 .fill {
     background-color: var(--primary);
     border-radius: 10px;
-    width: fit-content;
+    // width: fit-content;
+    width: max-content;
 
     .price {
         padding: 5px 10px;
