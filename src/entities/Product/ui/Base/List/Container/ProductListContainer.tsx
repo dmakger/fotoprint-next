@@ -3,11 +3,11 @@
 import { FC, useState } from "react"
 
 import SuspenseL from "@/shared/ui/SuspenseL/SuspenseL";
-import { ProductList } from "../ProductList";
 import { ProductAPI } from "@/entities/Product/api/product.api";
 import { IProductRequest } from "@/entities/Product/model/props.product.model";
 import { DefaultBackendParams } from "@/shared/data/params.data";
 import { ListDirection } from "@/shared/data/list.data";
+import { ProductList } from "../ui/ProductList";
 
 interface ProductListContainerProps {
     direction?: ListDirection;
