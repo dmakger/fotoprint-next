@@ -38,7 +38,7 @@ export const ProductPageContentClient: FC<ProductPageContentClientProps> = ({
     // HANDLE
     const handleOnClickCharacteristic: TListItemOnClick<ICombination> = (it) => {
         if (it.productCombinationId) {
-            router.push(MAIN_PAGES.PRODUCT(it.productCombinationId));
+            router.push(MAIN_PAGES.Product(it.productCombinationId));
         }
     };
 

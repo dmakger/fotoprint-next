@@ -3,7 +3,7 @@ import { FC } from "react"
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_ButtonArrow.module.scss'
 import { Button, IButton } from "../../ui/Button";
-import { ButtonVariant } from "../../model/button.model";
+import { ButtonVariant } from "../../data/button.data";
 import { IImageSize } from "@/shared/model/image.model";
 import { ListDirection } from "@/shared/data/list.data";
 import { Axis } from "@/shared/data/axis.data";
@@ -26,7 +26,7 @@ export const ButtonArrow:FC<ButtonArrowProps> = ({
 }) => {
     return (
         <Button afterImage={ARROW__BLACK__ICON} afterProps={{axis, width: sizes?.width, height: sizes?.height}} 
-                variant={ButtonVariant.DEFAULT} onClick={onClick}
+                variant={ButtonVariant.Default} onClick={onClick}
                 className={cls(cl.button, cl[direction], axis ? cl[axis] : '', className)} 
                 {...rest}/>
     )

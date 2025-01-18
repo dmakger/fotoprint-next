@@ -1,8 +1,10 @@
+import { CategoryAPI } from "@/entities/Metric/api/category.api";
 import { ProductAPI } from "@/entities/Product/api/product.api";
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
     [ProductAPI.reducerPath]: ProductAPI.reducer,
+    [CategoryAPI.reducerPath]: CategoryAPI.reducer,
 })
 
 export const setupStore = () => {
@@ -13,6 +15,7 @@ export const setupStore = () => {
                 serializableCheck: false
             }).concat(
                 ProductAPI.middleware,
+                CategoryAPI.middleware,
             ),
     })
 }

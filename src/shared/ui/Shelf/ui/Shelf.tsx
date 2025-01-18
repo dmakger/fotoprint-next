@@ -6,7 +6,7 @@ import { Button, ButtonVariant } from "../../Button";
 import { Slider } from "../../Slider/Slider";
 import { WrapperBlock } from '../../Wrapper/Block/ui/WrapperBlock';
 import Link from 'next/link';
-import { ButtonColor, ButtonSize } from '../../Button/model/button.model';
+import { ButtonColor, ButtonSize } from '../../Button/data/button.data';
 
 
 interface ShelfProps<T> extends IShelf<T>{}
@@ -34,7 +34,7 @@ export const Shelf = <T extends any>({
                 {href && (
                     <Button href={href} 
                             title={hrefTitle ?? "Посмотреть"}
-                            variant={ButtonVariant.CONTENT}
+                            variant={ButtonVariant.Content}
                             size={ButtonSize.Small} 
                             color={ButtonColor.Tertiary} />
                 )}

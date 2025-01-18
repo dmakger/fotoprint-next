@@ -1,5 +1,5 @@
-import { PopularProductShelf } from "@/entities/Product/ui/Base/Shelf/Popular/PopularProductShelf";
 import Wrapper1280 from "@/shared/ui/Wrapper/1280/Wrapper1280";
+import { PopularProductShelf } from "@/widgets/Shelf/Product/Popular/PopularProductShelf";
 
 export default function Home() {
 	return (

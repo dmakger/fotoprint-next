@@ -1,5 +1,5 @@
 import { ButtonImageSize } from "../data/button.data";
-import { ButtonSize } from "../model/button.model";
+import { ButtonSize } from "../data/button.data";
 
 export const getImageSizeBySize = (size: ButtonSize) => {
     if (size === ButtonSize.Big)
@@ -8,5 +8,5 @@ export const getImageSizeBySize = (size: ButtonSize) => {
         return ButtonImageSize.Medium
     if (size === ButtonSize.Small)
         return ButtonImageSize.Small
-    return ButtonImageSize.DefaultSize
+    return ButtonImageSize.Default
 }

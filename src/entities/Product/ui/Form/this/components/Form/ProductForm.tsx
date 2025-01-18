@@ -7,7 +7,7 @@ import { CharacteristicFormList } from "@/entities/Product/ui/CharacteristicForm
 import { TListItemOnClick } from "@/shared/model/list.model";
 import { WrapperBlock } from "@/shared/ui/Wrapper/Block/ui/WrapperBlock";
 import { Button, ButtonVariant } from "@/shared/ui/Button";
-import { ButtonColor, ButtonSize } from "@/shared/ui/Button/model/button.model";
+import { ButtonColor, ButtonSize } from "@/shared/ui/Button/data/button.data";
 
 interface ProductFormProps {
     forms: ICharacteristicForm[];
@@ -67,7 +67,7 @@ export const ProductForm: FC<ProductFormProps> = ({ forms, onClick, className })
             ))}
             <Button title="Добавить"
                     color={ButtonColor.Primary}
-                    variant={ButtonVariant.FILL} 
+                    variant={ButtonVariant.Fill} 
                     size={ButtonSize.Medium} 
                     isRounded={false}
                     onClick={handleOnClickAdd}

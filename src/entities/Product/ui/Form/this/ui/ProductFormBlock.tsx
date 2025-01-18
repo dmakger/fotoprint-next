@@ -6,7 +6,7 @@ import { cls } from '@/shared/lib/classes.lib';
 import cl from './_ProductFormBlock.module.scss'
 import { ICharacteristicForm, IProductForm } from "@/entities/Product/model/form.product.model";
 import { Button, ButtonVariant } from "@/shared/ui/Button";
-import { ButtonColor, ButtonSize } from "@/shared/ui/Button/model/button.model";
+import { ButtonColor, ButtonSize } from "@/shared/ui/Button/data/button.data";
 import { ProductForm } from "../components/Form/ProductForm";
 import { WrapperBlock } from "@/shared/ui/Wrapper/Block/ui/WrapperBlock";
 import { IOption } from "@/shared/model/option.model";
@@ -99,7 +99,7 @@ export const ProductFormBlock:FC<ProductFormBlockProps> = ({
             ) : (
                 <Button title="Добавить"
                     color={ButtonColor.Tertiary}
-                    variant={ButtonVariant.BORDER} 
+                    variant={ButtonVariant.Border} 
                     size={ButtonSize.Medium} 
                     isRounded={false}
                     onClick={handleOnClickAdd}

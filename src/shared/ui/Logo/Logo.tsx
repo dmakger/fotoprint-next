@@ -1,9 +1,10 @@
 import { FC } from "react"
+import Link from "next/link";
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_Logo.module.scss'
+
 import { SITE_NAME } from "@/shared/data/seo.data";
-import Link from "next/link";
 import { MAIN_PAGES } from "@/config/pages-url.config";
 
 interface LogoProps {
@@ -21,6 +22,6 @@ export const Logo:FC<LogoProps> = ({isLink=false, className}) => {
     if (!isLink)
         return html
     return (
-        <Link href={MAIN_PAGES.HOME}>{html}</Link>
+        <Link href={MAIN_PAGES.Home}>{html}</Link>
     )
 }

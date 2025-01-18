@@ -1,3 +1,3 @@
-export { ButtonVariant } from './model/button.model'
+export { ButtonVariant } from './data/button.data'
 
 export {Button} from './ui/Button'

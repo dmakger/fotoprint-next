@@ -21,7 +21,7 @@ export const ProductItem:FC<ProductItemProps> = ({
     className,
 }) => {
     return (
-        <Link href={linkToProduct ? MAIN_PAGES.PRODUCT(product.id) : '#'} className={cls(cl.product, className)}>
+        <Link href={linkToProduct ? MAIN_PAGES.Product(product.id) : '#'} className={cls(cl.product, className)}>
             <ImageAPI src={getProductImage(product.image)} fill={false} quality={100} className={cl.image} />
             <div className={cl.bottom}>
                 <h4 className={cl.title}>{product.title}</h4>

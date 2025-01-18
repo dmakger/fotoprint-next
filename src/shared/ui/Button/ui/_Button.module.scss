@@ -129,8 +129,29 @@
         border-color: var(--button-color);
     }
 }
+.toBorder {
+    background-color: var(--empty);
+    border: 1px solid var(--empty);
+    color: var(--button-color);
+
+    &:hover {
+        background-color: inherit !important;
+        border-color: var(--button-color-border);
+    }
+}
 .content {
     background-color: var(--empty);
     color: var(--button-color);
+}
+
+.textVariant {
+    background-color: var(--empty);
+    color: var(--button-color);
+    border-radius: 0;
+
+    &:hover {
+        color: var(--button-color-hovered);
+        background-color: inherit !important;
+    }
 }
 // <<< ========={ NEW STYLES }========= <<<

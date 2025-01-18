@@ -20,7 +20,7 @@ export const PopularProductShelf:FC<PopularProductShelfProps> = ({className}) =>
 
     
     return (
-        <ShelfProduct href={MAIN_PAGES.CATALOG} 
+        <ShelfProduct href={MAIN_PAGES.Catalog} 
                       title={"Хит недели"}
                       sliderParams={{
                         items: productQuery?.results ?? [],

@@ -38,7 +38,7 @@ export const ImageProduction:FC<ImageProductionProps> = ({
         return html
 
     return (
-        <Button onClick={onClick} variant={ButtonVariant.DEFAULT}>
+        <Button onClick={onClick} variant={ButtonVariant.Default}>
             {html}
         </Button>
     )

@@ -2,9 +2,11 @@
 
 import { FC, FormEvent, useState } from "react"
 import { useRouter } from "next/navigation";
+
 import cl from './_SearchInput.module.scss'
+
 import { Button } from "@/shared/ui/Button";
-import { ButtonSize, ButtonType } from "@/shared/ui/Button/model/button.model";
+import { ButtonSize, ButtonType } from "@/shared/ui/Button/data/button.data";
 import Input from "@/shared/ui/Input/Input";
 import { SEARCH_WHITE__ICON } from "@/shared/data/icon/search.data.icon";
 import { MAIN_PAGES } from "@/config/pages-url.config";
@@ -30,7 +32,7 @@ export const SearchInput:FC<SearchInputProps> = ({className}) => {
         params.set(BACKEND_PARAMS.SEARCH, searchValue)
         if (!searchValue)
             params.delete(BACKEND_PARAMS.SEARCH)
-        router.push(`${MAIN_PAGES.CATALOG}?${params.toString()}`);    
+        router.push(`${MAIN_PAGES.Catalog}?${params.toString()}`);    
     };
 
     return (

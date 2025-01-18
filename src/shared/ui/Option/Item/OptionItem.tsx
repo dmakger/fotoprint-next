@@ -7,7 +7,7 @@ import { IOption } from "@/shared/model/option.model";
 import { OptionVariant } from "@/shared/data/option.data";
 import { Button, ButtonVariant } from "../../Button";
 import { TRASH__ICON } from "@/shared/data/icon/trash.data.icon";
-import { ButtonColor, ButtonSize } from "../../Button/model/button.model";
+import { ButtonColor, ButtonSize } from "../../Button/data/button.data";
 
 interface OptionItemProps extends IListItem<IOption> {
     variant?: OptionVariant
@@ -39,7 +39,7 @@ export const OptionItem:FC<OptionItemProps> = ({
 
             {variant === OptionVariant.WDelete && onClickDelete && (
                 <div className={cl.wrapperDelete}>
-                    <Button variant={ButtonVariant.FILL}
+                    <Button variant={ButtonVariant.Fill}
                             size={ButtonSize.Small}
                             color={ButtonColor.Tertiary}
                             beforeImage={TRASH__ICON} beforeProps={{width: 20, height: 20}}

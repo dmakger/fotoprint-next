@@ -8,7 +8,7 @@ import cl from './_ProductPageContent.module.scss';
 import { Price } from "@/shared/ui/Price/Price";
 import { PriceVariant } from "@/shared/data/price.data";
 import { Button } from "@/shared/ui/Button";
-import { ButtonColor, ButtonSize } from "@/shared/ui/Button/model/button.model";
+import { ButtonColor, ButtonSize } from "@/shared/ui/Button/data/button.data";
 import { ProductPageContentClient } from "../components/ProductPageContentClient";
 import { WrapperBlock } from "@/shared/ui/Wrapper/Block/ui/WrapperBlock";
 import { WrapperBlockSize, WrapperBlockVariant } from "@/shared/ui/Wrapper/Block/data/block.wrapper.data";

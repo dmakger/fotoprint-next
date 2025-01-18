@@ -1,11 +1,11 @@
 'use client'
 import React, {ReactNode, RefObject, useEffect, useState} from 'react'
-import cl from './_Button.module.scss'
-import { ButtonVariant } from '..'
 import Link from 'next/link'
+
+import cl from './_Button.module.scss'
+
+import { ButtonColor, ButtonType, ButtonSize, ButtonImageSize, ButtonVariant } from '../data/button.data'
 import { cls } from '@/shared/lib/classes.lib'
-import { ButtonColor, ButtonSize, ButtonType } from '../model/button.model'
-import { ButtonImageSize } from '../data/button.data'
 import { getImageSizeBySize } from '../lib/button.lib'
 import { IIcon, IIconProps } from '@/shared/model/icon.model'
 import { ImageSmart } from '../../Image/ui/Smart/ImageSmart'
@@ -48,7 +48,7 @@ export interface IButton {
 }
 
 export const Button = ({
-    variant = ButtonVariant.FILL, color=ButtonColor.Primary, type = ButtonType.Button, size=ButtonSize.DefaultSize, isRounded=true,
+    variant = ButtonVariant.Fill, color=ButtonColor.Primary, type = ButtonType.Button, size=ButtonSize.DefaultSize, isRounded=true,
     ref,
     title, href,
     beforeImage, beforeProps, afterImage, afterProps, 
@@ -60,7 +60,7 @@ export const Button = ({
     // STATE
     const [isHovered, setIsHovered] = useState<boolean>(false)
     const [isPressed, setIsPressed] = useState<boolean>(false)
-    const [sizeImage, setSizeImage] = useState<ButtonImageSize>(ButtonImageSize.DefaultSize)
+    const [sizeImage, setSizeImage] = useState<ButtonImageSize>(ButtonImageSize.Default)
 
     // HANDLE
     const handleOnMouseEnter = () => {

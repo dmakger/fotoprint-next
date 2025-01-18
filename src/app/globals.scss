@@ -52,8 +52,9 @@
   --primary-light: var(--green-light);
 
   // secondary
-  --secondary: var(--green-2);
-  --secondary-hovered: var(--black);
+  --secondary: var(--black);
+  --secondary-hovered: var(--green-2);
+  --secondary-border: var(--black);
   --on-secondary: var(--white);
   --secondary-surface: var(--green-light);
   --secondary-surface-sub: var(--green-light);
