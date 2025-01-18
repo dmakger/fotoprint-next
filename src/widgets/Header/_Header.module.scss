@@ -1,6 +1,8 @@
 .wrapper {
     background-color: var(--background-2);
     padding: 10px 30px !important;
+    position: sticky;
+    top: 0;
 }
 
 .wrapperContent {

@@ -20,7 +20,11 @@ export const Txt = ({
         <Tag
             id={id}
             ref={innerRef}
-            className={cls(disabled ? cl.disabled : '', className)}
+            className={cls(
+                cl[type],
+                disabled ? cl.disabled : '', 
+                className
+            )}
         >
             {(disabled && textDisabled) ? textDisabled : text}
         </Tag>

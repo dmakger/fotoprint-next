@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import cl from './_SearchInput.module.scss'
 
 import { Button } from "@/shared/ui/Button";
-import { ButtonSize, ButtonType } from "@/shared/ui/Button/data/button.data";
+import { ButtonColor, ButtonSize, ButtonType } from "@/shared/ui/Button/data/button.data";
 import Input from "@/shared/ui/Input/Input";
 import { SEARCH_WHITE__ICON } from "@/shared/data/icon/search.data.icon";
 import { MAIN_PAGES } from "@/config/pages-url.config";
@@ -47,6 +47,7 @@ export const SearchInput:FC<SearchInputProps> = ({className}) => {
                     <div className={cl.right}>
                         <Button type={ButtonType.Submit} 
                                 size={ButtonSize.Small}
+                                color={ButtonColor.Secondary}
                                 beforeImage={SEARCH_WHITE__ICON} 
                                 beforeProps={{width: 20, height: 20}}
                                 className={cl.button} />
