@@ -24,9 +24,9 @@ interface SuspenseLQueryProps {
 }
 
 export const SuspenseLQuery:FC<SuspenseLQueryProps> = ({
-    pageNumber=BACKEND_PARAMS.PAGE, setPageNumber, defaultPageNumber=DefaultBackendParams.Page,
-    limit=BACKEND_PARAMS.LIMIT, setLimit, defaultLimit=DefaultBackendParams.Limit,
-    search=BACKEND_PARAMS.SEARCH, setSearch, defaultSearch,
+    pageNumber=BACKEND_PARAMS.Page, setPageNumber, defaultPageNumber=DefaultBackendParams.Page,
+    limit=BACKEND_PARAMS.Limit, setLimit, defaultLimit=DefaultBackendParams.Limit,
+    search=BACKEND_PARAMS.Search, setSearch, defaultSearch,
     data, children
 }) => {
     // ROUTE

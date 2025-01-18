@@ -27,7 +27,11 @@
 
       .button {
         padding: 10px 20px;
-        border-radius: 0 12px 12px 0 !important;
+        border-radius: 0 7px 7px 0 !important;
+		
+		&:hover {
+			background-color: var(--background-2) !important;
+		}
       }
     }
   }
