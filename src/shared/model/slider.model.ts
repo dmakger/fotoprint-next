@@ -1,5 +1,5 @@
 import { SliderPagingVariant } from "../data/slider.data";
-import { IList, IListBase, IListBaseOnlyItem, IListTopLevel } from "./list.model";
+import { IList, IListBase, IListBaseOnlyItem, IListTop } from "./list.model";
 
 export interface ISliderGalleryTop<T> extends IListBase<T> {
     itemPublic?: ISliderGalleryItem
@@ -36,7 +36,7 @@ export interface ISliderBase<T> extends IListBase<T> {
     // slider
 }
 
-export interface ISliderTop<T> extends IListTopLevel<T> {
+export interface ISliderTop<T> extends IListTop<T> {
     pagingVariant?: SliderPagingVariant
     pagingAmount?: number
     slideWidth?: number

@@ -11,7 +11,6 @@ import { ButtonColor, ButtonSize } from "../../Button/data/button.data";
 
 interface OptionItemProps extends IListItem<IOption> {
     variant?: OptionVariant
-    onClickDelete?: Function
 }
 
 export const OptionItem:FC<OptionItemProps> = ({
@@ -37,7 +36,7 @@ export const OptionItem:FC<OptionItemProps> = ({
                 <span className={cl.title}>{item.title}</span>
             </div>
 
-            {variant === OptionVariant.WDelete && onClickDelete && (
+            {(variant === OptionVariant.WDelete && onClickDelete) && (
                 <div className={cl.wrapperDelete}>
                     <Button variant={ButtonVariant.Fill}
                             size={ButtonSize.Small}

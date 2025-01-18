@@ -18,22 +18,33 @@ interface IModalActionProps extends IModalAction {}
 export const ModalAction:FC<IModalActionProps> = ({
     title, 
     text, 
-    inputProps,
-    classNameWrapperInput,
-    additionInputButtonText,
     buttonFirst, buttonSecond, 
     hasBackground=false,
     imageBackgroundSrc = "",
     classNameShowBackgroundImage,
     isLoading,
     className,
+    classNameSidebar,
+    classNameModalAction,
     ...modalProps
 }) => {
 
     return (
         <Modal {...modalProps}
-            className={cls(className)} classNameSidebar={cl.modalSidebar}>
-            <div className={cls(cl.wrapper, hasBackground ? cls(cl.showBackgroundImage, classNameShowBackgroundImage, text || inputProps ? cl.hasContent : '') : '')}>
+            className={cls(className)} 
+            classNameSidebar={cls(cl.modalSidebar, classNameSidebar)}
+        >
+            <div className={cls(
+                cl.wrapper, 
+                hasBackground 
+                    ? cls(
+                        cl.showBackgroundImage, 
+                        classNameShowBackgroundImage, 
+                        text  ? cl.hasContent : ''
+                        ) 
+                    : '',
+                classNameModalAction
+            )}>
                 {(hasBackground && imageBackgroundSrc) && (
                     <Image src={imageBackgroundSrc} alt={"qwe"} className={cl.backgroundImage} />
                 )}

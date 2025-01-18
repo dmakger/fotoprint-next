@@ -2,14 +2,14 @@ import { FC } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_CombinationList.module.scss'
-import { IListTopLevel } from "@/shared/model/list.model";
+import { IListTop } from "@/shared/model/list.model";
 import { ICombination } from "@/entities/Metric/model/characteristic.metric.model";
 import { List } from "@/shared/ui/List/Default/List";
 import { CombinationOption } from "../Item/CombinationOption";
 import { WrapperBlock } from "@/shared/ui/Wrapper/Block/ui/WrapperBlock";
 import { WrapperBlockSize, WrapperBlockVariant } from "@/shared/ui/Wrapper/Block/data/block.wrapper.data";
 
-interface CombinationListProps extends IListTopLevel<ICombination>{
+interface CombinationListProps extends IListTop<ICombination>{
     hasTitleGroup?: boolean
 }
 

@@ -5,7 +5,6 @@
     
     .sidebar {
         display: flex;
-        justify-content: center;
         position: fixed;
         top: 0;
         bottom: 0;
@@ -47,6 +46,7 @@
         display: flex;
         margin: auto;
         border-radius: 16px;
+        justify-content: center;
     }
 
     .bottom {

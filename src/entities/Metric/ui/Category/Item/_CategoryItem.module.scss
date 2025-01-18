@@ -5,11 +5,13 @@
     gap: 10px;
     padding: 10px 15px;
     border-radius: 20px;
-    background-color: var(--tertiary);
+    // background-color: var(--tertiary);
+    background-color: var(--tertiary-surface);
     transition: .2s;
 
     .title {
         font-size: var(--fs-sm);
         transition: inherit;
+        text-align: center;
     }
 }

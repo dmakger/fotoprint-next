@@ -16,7 +16,7 @@ export const Header:FC<HeaderProps> = () => {
             <Button size={ButtonSize.Small}
                     color={ButtonColor.Secondary}
                     variant={ButtonVariant.ToBorder}
-                    href={MAIN_PAGES.Search}
+                    href={MAIN_PAGES.Catalog}
                     beforeImage={SEARCH_BLACK__ICON} 
                     beforeProps={{width: 20, height: 20}}/>
             <Logo isLink={true} />

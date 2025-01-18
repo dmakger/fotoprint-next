@@ -1,5 +1,5 @@
 'use client'
-import React, {ReactNode, RefObject, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Link from 'next/link'
 
 import cl from './_Button.module.scss'
@@ -7,45 +7,10 @@ import cl from './_Button.module.scss'
 import { ButtonColor, ButtonType, ButtonSize, ButtonImageSize, ButtonVariant } from '../data/button.data'
 import { cls } from '@/shared/lib/classes.lib'
 import { getImageSizeBySize } from '../lib/button.lib'
-import { IIcon, IIconProps } from '@/shared/model/icon.model'
 import { ImageSmart } from '../../Image/ui/Smart/ImageSmart'
+import { IButton } from '../model/button.model'
 
-export interface IButton {
-    variant?: ButtonVariant
-    color?: ButtonColor
-    type?: ButtonType
-    size?: ButtonSize
-    isRounded?: boolean
-
-    ref?: RefObject<HTMLButtonElement>
-
-    title?: string,
-    href?: string
-
-    beforeImage?: IIcon
-    beforeProps?: IIconProps
-    afterImage?: IIcon
-    afterProps?: IIconProps
-    
-    active?: boolean
-    success?: boolean,
-    disabled?: boolean
-    hovered?: boolean
-    loading?: boolean
-    noTranslation?: boolean
-
-    onClick?: Function
-    onMouseEnter?: Function
-    onMouseLeave?: Function
-
-    children?: ReactNode
-    className?: string
-    classNameLink?: string
-    classNameText?: string
-    classNameTextHovered?: string
-    classNameTextPressed?: string
-    classNameTextDisabled?: string
-}
+interface IButtonProps extends IButton {}
 
 export const Button = ({
     variant = ButtonVariant.Fill, color=ButtonColor.Primary, type = ButtonType.Button, size=ButtonSize.DefaultSize, isRounded=true,
@@ -56,7 +21,7 @@ export const Button = ({
     onClick=()=>{}, onMouseEnter=()=>{}, onMouseLeave=()=>{},
     children, className, classNameLink, 
     classNameText, classNameTextHovered, classNameTextPressed, classNameTextDisabled,
-}: IButton) => {
+}: IButtonProps) => {
     // STATE
     const [isHovered, setIsHovered] = useState<boolean>(false)
     const [isPressed, setIsPressed] = useState<boolean>(false)

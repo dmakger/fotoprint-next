@@ -11,7 +11,7 @@ export interface IListBase<T> extends TAnyParams {
     loadingProps?: IListLoadingProps
     componentLoading?: React.FC<TAnyParams>;
 
-    items: T[];
+    items?: T[];
     direction?: ListDirection;
     gap?: number
     
@@ -43,12 +43,12 @@ export interface IListBaseOnlyItem<T> {
  * Объединение `IListBase` и `IListBaseOnlyItem`.    
  * Отличается от `IList` отсутствием поля `component`
  */
-export interface IListTopLevel<T> extends IListBase<T>, IListBaseOnlyItem<T> {}
+export interface IListTop<T> extends IListBase<T>, IListBaseOnlyItem<T> {}
 
 /**
  * Интерфейс необходимый для реализации списка.  
  */
-export interface IList<T> extends IListTopLevel<T> {
+export interface IList<T> extends IListTop<T> {
     component: React.FC<IListItem<T>>;
 }
 

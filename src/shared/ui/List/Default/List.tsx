@@ -17,7 +17,7 @@ export const List = <T extends any>({
     componentBetween: ListItemComponentBetween,
     componentAfter: ListItemComponentAfter,
     
-    items, 
+    items=[], 
     listRef,
     component: ListItemComponent,
     componentProps,
@@ -27,6 +27,7 @@ export const List = <T extends any>({
     activeIndex,
     gap,
     onClickItem = () => {},
+    onClickDelete,
     generateKey,
     style,
     className,
@@ -36,6 +37,8 @@ export const List = <T extends any>({
 
     // Loading Props
     const {length: lengthLoading,  ...updatedLoadingProps} = loadingProps ?? {}
+
+    // HANDLE
 
     // Объединяем className из componentProps с classNameItem, если они оба существуют
     const updatedComponentProps = {
@@ -63,6 +66,7 @@ export const List = <T extends any>({
                             item={it}
                             style={style}
                             onClick={() => onClickItem(it, index)}
+                            onClickDelete={onClickDelete ? () => onClickDelete(it, index) : undefined}
                             activeId={activeId}
                             isActive={activeIndex === index || !!(it && typeof it === 'object' && 'id' in it && it.id && activeId === it.id)}
                         />

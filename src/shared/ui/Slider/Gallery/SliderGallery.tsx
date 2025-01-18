@@ -4,7 +4,7 @@ import { cls } from '@/shared/lib/classes.lib';
 import cl from './_SliderGallery.module.scss'
 import { ISliderGallery } from "@/shared/model/slider.model";
 import { Slider } from "../Slider";
-import { IListTopLevel } from "@/shared/model/list.model";
+import { IListTop } from "@/shared/model/list.model";
 
 interface SliderGalleryProps<T> extends ISliderGallery<T> {
 // interface SliderGalleryProps<T> extends ISlider<T> {
@@ -28,7 +28,7 @@ export const SliderGallery = <T extends any>({
     const [activeIndex, setActiveIndex] = useState(0);
 
     // HANDLE
-    const handleOnClickItem: IListTopLevel<string>['onClickItem'] = (_, index) => {
+    const handleOnClickItem: IListTop<string>['onClickItem'] = (_, index) => {
         if (index !== undefined) {
             setActiveIndex(index);
         }

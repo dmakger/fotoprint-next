@@ -8,11 +8,11 @@ import { CategoryAPI } from "@/entities/Metric/api/category.api";
 import { ICategoryRequest } from "@/entities/Metric/model/props.category.metric.model";
 import { DropdownCategory } from "@/features/Dropdown/Category/DropdownCategory";
 
-interface OnlyParentCategoryListDropdownProps{
+interface ParentCategoryListDropdownProps{
     className?: string,
 }
 
-export const OnlyParentCategoryListDropdown:FC<OnlyParentCategoryListDropdownProps> = ({className}) => {
+export const ParentCategoryListDropdown:FC<ParentCategoryListDropdownProps> = ({className}) => {
     // API
     const {data: categories, isLoading} = CategoryAPI.useGetCategoriesQuery({only_parent: false} as ICategoryRequest)
     

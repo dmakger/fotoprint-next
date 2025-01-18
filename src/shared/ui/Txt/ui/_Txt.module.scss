@@ -1,7 +1,18 @@
 // >>> ========={ TAG }========= >>>
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: var(--fw-medium);
+}
+
 .h1 {
     font-size: var(--fs-elg);
-    font-weight: var(--fw-medium);
+}
+
+.h2 {
+    font-size: var(--fs-lg);
+}
+
+.h3 {
+    font-size: var(--fs-rg);
 }
 // <<< ========={ TAG }========= <<<
 

@@ -63,7 +63,6 @@ export const ProductFormBlock:FC<ProductFormBlockProps> = ({
                 }
             }
 
-            console.log('qwe items', items)
             if(setPrice)
                 setPrice(prev => prev + price)
             return [...prev, newOption]

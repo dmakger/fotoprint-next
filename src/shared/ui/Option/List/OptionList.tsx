@@ -1,12 +1,12 @@
 import { FC } from "react"
 
-import { IListTopLevel } from "@/shared/model/list.model";
+import { IListTop } from "@/shared/model/list.model";
 import { IOption } from "@/shared/model/option.model";
 import { List } from "../../List/Default/List";
 import { OptionItem } from "../Item/OptionItem";
 import { OptionVariant } from "@/shared/data/option.data";
 
-interface OptionListProps extends IListTopLevel<IOption> {
+interface OptionListProps extends IListTop<IOption> {
     variant?: OptionVariant
 }
 
