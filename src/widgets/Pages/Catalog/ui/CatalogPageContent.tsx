@@ -27,7 +27,7 @@ export const CatalogPageContent:FC<CatalogPageContentProps> = ({className}) => {
                             }} />
                 <SearchInput />
                 {/* <ParentCategoryListDropdown /> */}
-                <ModalFilter />
+                {/* <ModalFilter /> */}
                 {/* <ParentCategoryList /> */}
             </div>
             <ProductListContainer direction={ListDirection.Wrap}/>
