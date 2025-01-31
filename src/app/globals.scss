@@ -7,9 +7,11 @@
 
   // ===={ COLORS }====
   // BASE
-  --empty: #FFFFFF00;
   --black: #000000;
   --white: #FFFFFF;
+
+  --empty: #FFFFFF00;
+  --white_50: rgba(255, 255, 255, 0.5);
 
   --white-light: #F5F4F2;
   // --gray-1: #F0F0F0;
@@ -24,7 +26,7 @@
   --gray-5: #F4F4F6;
   --gray-6: #F5F5F5;
   --gray-7: #EFEFEF;
-  // 5 6 7
+  --gray-8: #1F1F1F;
 
   --green-1: #1CAC59;
   --green-2: #2ED573;
@@ -34,7 +36,7 @@
   --red: #E54348;
 
   // SPECIFY
-  --foreground-1: var(--black);
+  --foreground-1: var(--gray-8);
   --foreground-2: var(--gray-2);
   --foreground-3: var(--white);
 
@@ -42,6 +44,7 @@
   --background-2: var(--white);
   --background-3: var(--gray-2);
   --background-4: var(--gray-3);
+  --background-5: var(--gray-8);
 
   // primary
   --primary: var(--green-2);
@@ -52,9 +55,9 @@
   --primary-light: var(--green-light);
 
   // secondary
-  --secondary: var(--black);
+  --secondary: var(--gray-8);
   --secondary-hovered: var(--green-2);
-  --secondary-border: var(--black);
+  --secondary-border: var(--gray-8);
   --on-secondary: var(--white);
   --secondary-surface: var(--green-light);
   --secondary-surface-sub: var(--green-light);
@@ -181,8 +184,9 @@ button{
 }
 
 h1,h2,h3,h4,h5,h6, span, p{
-  font-size:inherit;
+  font-size: inherit;
   font-weight: inherit;
+  text-align: inherit;
 }
 
 @media (prefers-color-scheme: dark) {

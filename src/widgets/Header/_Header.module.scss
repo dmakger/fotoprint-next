@@ -1,26 +1,35 @@
 .wrapper {
-    background-color: var(--background-2);
+    background: var(--white_50);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px 30px !important;
     position: sticky;
     top: 0;
+    z-index: 100;
 }
 
 .wrapperContent {
+    position: relative;
     display: flex;
     flex-direction: row !important;
-    // justify-content: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 20px;
 }
 
-.buttonTitle {
-    font-size: var(--fs-xs) !important;
-}
-
-
-.right {
-    margin-left: auto;
+.left, .right {
+    position: absolute;
     display: flex;
-    gap: 20px;
-    height: fit-content;
+    gap: 10px;
+}
+.left {
+    display: flex;
+    left: 0;
+}
+.right {
+    right: 0;
+}
+
+.catalog:hover {
+    background-color: var(--secondary) !important;
+    color: var(--on-primary) !important;
 }

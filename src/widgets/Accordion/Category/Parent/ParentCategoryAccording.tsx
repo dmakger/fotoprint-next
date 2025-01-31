@@ -1,4 +1,5 @@
 "use client"
+
 import { FC } from "react"
 
 import { AccordionCategory } from "@/features/Accordion/Category/AccordionCategory"

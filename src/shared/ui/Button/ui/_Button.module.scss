@@ -58,7 +58,8 @@
     }
 
     &:hover {
-        background-color: var(--button-color-hovered) !important;
+        // background-color: var(--button-color-hovered) !important;
+        background-color: var(--button-color-hovered);
         color: var(--button-color-on);
     }
     &:active {
@@ -106,20 +107,26 @@
 
 // >>> ========={ NEW STYLES }========= >>>
 .default {
-
     &:hover {
-        background-color: inherit !important;
+        background-color: inherit;
     }
-
 }
+
 .fill {
     background-color: var(--button-color);
     color: var(--button-color-on);
 }
+.toFill {
+    background-color: var(--empty);
+    // border: 1px solid var(--empty);
+    color: var(--button-color);
+}
+
 .tonal {
     background-color: var(--button-color-surface);
     color: var(--button-color);
 }
+
 .border {
     background-color: var(--empty);
     border: 1px solid var(--button-color-border);
@@ -139,6 +146,7 @@
         border-color: var(--button-color-border);
     }
 }
+
 .content {
     background-color: var(--empty);
     color: var(--button-color);

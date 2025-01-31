@@ -7,6 +7,7 @@ export enum ButtonColor {
     Primary = 'primary',
     Secondary = 'secondary',
     Tertiary = 'tertiary',
+    Without = 'without',
 }
 
 export enum ButtonSize {
@@ -19,6 +20,7 @@ export enum ButtonSize {
 export enum ButtonVariant{
     Default = "default",
     Fill = "fill",
+    ToFill = "toFill",
     Tonal = "tonal",
     Border = "border",
     ToBorder = "toBorder",
