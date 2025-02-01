@@ -8,16 +8,20 @@ import cl from './_SearchInput.module.scss'
 import { Button } from "@/shared/ui/Button";
 import { ButtonColor, ButtonSize, ButtonType } from "@/shared/ui/Button/data/button.data";
 import Input from "@/shared/ui/Input/Input";
-import { SEARCH_WHITE__ICON, SEARCH_WHITE_TO_BLACK__ICON } from "@/shared/data/icon/search.data.icon";
-import { MAIN_PAGES } from "@/config/pages-url.config";
+import { SEARCH_WHITE_TO_BLACK__ICON } from "@/shared/data/icon/search.data.icon";
 import { BACKEND_PARAMS } from "@/config/params/backend.params.config";
 import SuspenseL from "@/shared/ui/SuspenseL/SuspenseL";
+import { cls } from "@/shared/lib/classes.lib";
 
 interface SearchInputProps{
+    baseLink: string
     className?: string,
 }
 
-export const SearchInput:FC<SearchInputProps> = ({className}) => {
+export const SearchInput:FC<SearchInputProps> = ({
+    baseLink,
+    className,
+}) => {
     // ROUTER
     const router = useRouter()
 
@@ -32,7 +36,7 @@ export const SearchInput:FC<SearchInputProps> = ({className}) => {
         params.set(BACKEND_PARAMS.Search, searchValue)
         if (!searchValue)
             params.delete(BACKEND_PARAMS.Search)
-        router.push(`${MAIN_PAGES.Catalog}?${params.toString()}`);    
+        router.push(`${baseLink}?${params.toString()}`);    
     };
 
     return (
@@ -40,7 +44,7 @@ export const SearchInput:FC<SearchInputProps> = ({className}) => {
             <SuspenseL.Any data={[
                 {searchKey: BACKEND_PARAMS.Search, set: setDefaultSearchValue, defaultValue: ""}
             ]}>
-                <form className={cl.search} onSubmit={handleOnSubmit}>
+                <form className={cls(cl.search, className)} onSubmit={handleOnSubmit}>
                     <Input.Text name={'search'} 
                                 placeholder="Поиск..." 
                                 defaultValue={defaultSearchValue ?? undefined} className={cl.text} />

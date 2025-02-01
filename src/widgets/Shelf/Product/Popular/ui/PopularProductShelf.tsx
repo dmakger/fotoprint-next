@@ -5,7 +5,6 @@ import { FC } from "react"
 import { ShelfProduct } from "@/features/Shelf/Product/ShelfProduct";
 import { IProductPopularRequest, IProductRequest } from "@/entities/Product/model/props.product.model";
 import { ProductAPI } from "@/entities/Product/api/product.api";
-import { MAIN_PAGES } from "@/config/pages-url.config";
 import { IShelfWidget } from "@/shared/ui/Shelf/model/shelf.model";
 import { IProduct } from "@/entities/Product/model/product.model";
 import { getPopularProductsByDays } from "../lib/popular.product.shelf.lib";
