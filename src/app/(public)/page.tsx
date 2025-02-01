@@ -5,7 +5,8 @@ export default function Home() {
 	return (
 		<main>
 			<Wrapper1280>
-				<PopularProductShelf />
+				<PopularProductShelf days={7} />
+				<PopularProductShelf days={30} />
 			</Wrapper1280>
 		</main>
   );

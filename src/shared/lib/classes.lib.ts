@@ -1,3 +1,3 @@
-export const cls = (...classes: (string | undefined | boolean)[]) => {
-    return classes.filter(it => it !== undefined && it !== false).join(' ');
+export const cls = (...classes: (string | undefined)[]) => {
+    return classes.filter(it => it !== undefined).join(' ');
 }

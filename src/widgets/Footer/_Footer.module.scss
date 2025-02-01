@@ -1,5 +1,6 @@
 .footer {
     padding: 20px;
+    margin-top: auto;
 
     .wrapper {
         background-color: var(--background-5);
@@ -10,13 +11,42 @@
             display: flex;
             flex-direction: row;
             color: var(--foreground-3);
+            justify-content: space-between;
         }
     }
 }
 
-.column {
-    color: var(--foreground-3);
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-}
+.linkContainer {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .link {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--green-3); // Цвет линии
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+  
+    &:hover {
+      color: var(--green-3); // Цвет текста при наведении
+  
+      &::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  }

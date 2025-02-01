@@ -25,6 +25,7 @@ export enum ButtonVariant{
     Border = "border",
     ToBorder = "toBorder",
     Content = "content",
+
     Text = "textVariant",
 }
 
