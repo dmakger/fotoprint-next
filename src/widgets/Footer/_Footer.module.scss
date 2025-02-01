@@ -8,7 +8,15 @@
 
         .wrapperContent {
             display: flex;
+            flex-direction: row;
+            color: var(--foreground-3);
         }
     }
 }
 
+.column {
+    color: var(--foreground-3);
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}

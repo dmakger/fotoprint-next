@@ -19,8 +19,11 @@ export const Footer:FC<FooterProps> = ({className}) => {
                 className={cls(cl.wrapper, className)}
                 classNameContent={cl.wrapperContent}
             >
-                <LogoBlock />
-                
+                {/* <LogoBlock />
+                <div className={cl.column}> */}
+                    <p>©2025. Фотопринт</p>
+                    <p>Разработано — dmakger</p>
+                {/* </div>  */}
             </Wrapper1280>
         </footer>
     )
