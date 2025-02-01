@@ -3,7 +3,8 @@
 import { FC, useState } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
-import cl from './_ModalFilter.module.scss'
+import cl from './_ModalFilter.module.scss';
+
 import { EModalView } from "@/shared/ui/Modal/data/modal.data";
 import { Button, ButtonVariant } from "@/shared/ui/Button";
 import { IButton } from "@/shared/ui/Button/model/button.model";
@@ -11,7 +12,6 @@ import { Modal } from "@/shared/ui/Modal/ui/Modal/Modal";
 import { Txt } from "@/shared/ui/Txt/ui/Txt";
 import { TxtType } from "@/shared/ui/Txt/model/txt.model";
 import { ButtonColor } from "@/shared/ui/Button/data/button.data";
-import { Accordion } from "@/shared/ui/Accordion/ui/Accordion";
 import { ParentCategoryAccording } from "@/widgets/Accordion/Category/Parent/ParentCategoryAccording";
 
 interface ModalFilterProps{

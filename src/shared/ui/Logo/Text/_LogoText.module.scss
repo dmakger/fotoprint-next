@@ -30,6 +30,10 @@
         }
     }
 
+    &:active {
+        scale: 0.9;
+    }
+
     .text-wrapper {
         position: relative;
         height: 1em;

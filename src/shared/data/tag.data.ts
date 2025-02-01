@@ -24,6 +24,7 @@ export type TagTxtType = typeof TagTxt[keyof typeof TagTxt];
 export const TagBlock = {
     Header: 'header',
     Footer: 'footer',
+    Main: 'main',
 } as const;
 
 

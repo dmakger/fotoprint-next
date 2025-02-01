@@ -23,7 +23,7 @@ export const CombinationList:FC<CombinationListProps> = ({
         <List {...rest} items={items} component={CombinationOption} className={cls(cl.list, className)}/>
     )
 
-    if (!hasTitleGroup)
+    if (!hasTitleGroup || !items || items.length === 0)
         return list
     return (
         // <div className={cl.wrapper}>

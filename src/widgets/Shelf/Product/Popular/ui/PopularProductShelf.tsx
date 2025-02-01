@@ -6,15 +6,21 @@ import { ShelfProduct } from "@/features/Shelf/Product/ShelfProduct";
 import { IProductPopularRequest, IProductRequest } from "@/entities/Product/model/props.product.model";
 import { ProductAPI } from "@/entities/Product/api/product.api";
 import { MAIN_PAGES } from "@/config/pages-url.config";
+import { IShelfWidget } from "@/shared/ui/Shelf/model/shelf.model";
+import { IProduct } from "@/entities/Product/model/product.model";
+import { getPopularProductsByDays } from "../lib/popular.product.shelf.lib";
 
-interface PopularProductShelfProps{
+
+interface PopularProductShelfProps extends IShelfWidget<IProduct>{
     days: IProductPopularRequest['days']
-    className?: string,
 }
 
 export const PopularProductShelf:FC<PopularProductShelfProps> = ({
     days,
-    className,
+
+    title,
+    href,
+    ...rest
 }) => {
     // API
     const {data: productQuery, isLoading} = ProductAPI.useGetProductsPopularQuery({
@@ -23,13 +29,16 @@ export const PopularProductShelf:FC<PopularProductShelfProps> = ({
         page: 1,
     } as IProductPopularRequest, {refetchOnMountOrArgChange: true})
 
-    
+    // STATIC
+    const popularShelfData = getPopularProductsByDays(days)
+
     return (
-        <ShelfProduct href={MAIN_PAGES.Catalog} 
-                      title={"Хит недели"}
+        <ShelfProduct href={href ?? popularShelfData.href} 
+                      title={title ?? popularShelfData.title}
                       sliderParams={{
                         items: productQuery?.results ?? [],
                         isLoading: isLoading
-                      }} />
+                      }} 
+                      {...rest} />
     )
 }

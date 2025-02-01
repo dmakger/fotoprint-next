@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
+import { EModalView } from "../data/modal.data"
+import { IButtonWORef } from "../../Button/model/button.model"
 
-import { EModalView } from "@/shared/data/modal.data"
-import { IButtonWORef } from "../../Button/data/button.data"
 
 
 

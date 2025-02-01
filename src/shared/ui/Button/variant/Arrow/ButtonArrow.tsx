@@ -1,13 +1,15 @@
 import { FC } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
-import cl from './_ButtonArrow.module.scss'
-import { Button, IButton } from "../../ui/Button";
+import cl from './_ButtonArrow.module.scss';
+
+import { Button } from "../../ui/Button";
 import { ButtonVariant } from "../../data/button.data";
 import { IImageSize } from "@/shared/model/image.model";
 import { ListDirection } from "@/shared/data/list.data";
 import { Axis } from "@/shared/data/axis.data";
 import { ARROW__BLACK__ICON } from "@/shared/data/icon/arrow.data.icon";
+import { IButton } from "../../model/button.model";
 
 interface ButtonArrowProps extends IButton {
     isSecondary?: boolean

@@ -30,7 +30,7 @@ export const SliderGalleryImageProduction:FC<SliderGalleryImageProductionProps> 
 
     return (
         <>
-            {(is1024 && isImageFullWindow && items.length === 1) ? (
+            {(is1024 && isImageFullWindow && items && items.length === 1) ? (
                 <ImageProduction item={items[0]} 
                                  width={520} 
                                  height={520} 
@@ -50,7 +50,7 @@ export const SliderGalleryImageProduction:FC<SliderGalleryImageProductionProps> 
                         ...itemPublic
                     }}
                     itemOther={{
-                        show: !is1024 && items.length > 1,
+                        show: !is1024 && items && items.length > 1,
                         pagingVariant: SliderPagingVariant.Full,
                         isIndexChangeOnClick: false,
                         componentProps: {width: 100, height: 100},

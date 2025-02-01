@@ -25,7 +25,7 @@ export const CharacteristicFormList:FC<CharacteristicFormListProps> = ({
         <WrapperBlock 
             variant={WrapperBlockVariant.Empty} 
             size={WrapperBlockSize.Without} 
-            title={items.length > 0 ? items[0].characteristicGroup.title : ''}
+            title={(items && items.length > 0) ? items[0].characteristicGroup.title : ''}
             classNameTitle={cl.title}
         >
             <List {...rest}

@@ -9,6 +9,7 @@ import { DefaultBackendParams } from "@/shared/data/params.data";
 import { ListDirection } from "@/shared/data/list.data";
 import { ProductList } from "../ui/ProductList";
 
+
 interface ProductListContainerProps {
     direction?: ListDirection;
     className?: string,

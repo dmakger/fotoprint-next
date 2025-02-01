@@ -12,11 +12,19 @@ export interface IShelf<T> extends IShelfBase<T> {
 
 /**
  * Полка - слайдер c названием и ссылкой.  
- * Интерфейс необходим для перереализации в компонентах
+ * Интерфейс необходим для перереализации для entities
  */
 export interface IShelfTop<T> extends IShelfBase<T> {
     title?: string
     sliderParams: ISliderTop<T>
+}
+
+/**
+ * Полка - слайдер c названием и ссылкой.  
+ * Интерфейс необходим для перереализации для widget
+ */
+export interface IShelfWidget<T> extends IShelfBase<T> {
+    title?: string
 }
 
 

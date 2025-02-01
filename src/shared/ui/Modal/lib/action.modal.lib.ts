@@ -1,5 +1,5 @@
-import { EModalView } from "@/shared/data/modal.data"
 import { IModalAction } from "@/shared/ui/Modal/model/action.modal.model"
+import { EModalView } from "../data/modal.data"
 
 /**
  * @returns пустой `IModalAction` 
@@ -7,7 +7,7 @@ import { IModalAction } from "@/shared/ui/Modal/model/action.modal.model"
 export const getEmptyModalAction = (): IModalAction => {
     return {
         title: '',
-        view: EModalView.CENTER,
+        view: EModalView.Center,
         isOpen: false,
     }
 }

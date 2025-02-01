@@ -68,6 +68,10 @@ export const Slider = <T extends any>({
     const [endX, setEndX] = useState(0);
 
     // EFFECT
+    useEffect(() => {
+        if (!items) return;
+    }, [items])
+
     // out-in 
     useEffect(() => {
         setActiveIndex(currentIndex)
@@ -93,6 +97,8 @@ export const Slider = <T extends any>({
 
     // Calculate sizes on resize and mount
     useEffect(() => {
+        if (!items) return;
+
         const handleResize = () => {
             let offsetSize = sliderRef.current?.offsetWidth || 0;
             let scrollSize = listRef.current?.scrollWidth || 0;
@@ -133,7 +139,7 @@ export const Slider = <T extends any>({
                 resizeObserver.unobserve(listRef.current);
             }
         };
-    }, [sliderRef, listRef, slideWidthOut, gap, items.length, direction, isFull]);
+    }, [sliderRef, listRef, slideWidthOut, gap, items?.length, direction, isFull]);
 
     // Sync scroll position with activeIndex
     useEffect(() => {
@@ -150,6 +156,8 @@ export const Slider = <T extends any>({
 
     // Update scroll state
     useEffect(() => {
+        if (!items) return;
+
         const updateScrollState = () => {
             if (!sliderRef.current) return;
 
@@ -179,7 +187,7 @@ export const Slider = <T extends any>({
         return () => {
             sliderRef.current?.removeEventListener('scroll', handleScroll);
         };
-    }, [sliderSize, slideSize, gap, items.length, direction]);
+    }, [sliderSize, slideSize, gap, items?.length, direction]);
 
     // NAVIGATION
     const onPrev = () => {
@@ -195,7 +203,7 @@ export const Slider = <T extends any>({
     };
 
     const onNext = () => {
-        if (isLoading) return;
+        if (isLoading || !items) return;
 
         setVisibleIndex((prev) => {
             const newIndex = Math.min(items.length - 1, prev + pagingAmount);
@@ -255,7 +263,7 @@ export const Slider = <T extends any>({
                       classNameItem={cls(cl.slide, classNameItem)}
                       {...rest} />
             </div>
-            {hasGalleryCounter && items.length > 1 && (
+            {hasGalleryCounter && items && items.length > 1 && (
                 <GalleryCounter activeIndex={currentIndex} listLength={items.length}/>
             )}
             
