@@ -1,0 +1,9 @@
+User-Agent: *
+Disallow: /*
+Allow: /$
+Allow: /catalog$
+Allow: /collection/popular/*
+Allow: /product/*
+
+Sitemap: https://fotoprintart.ru/sitemap.xml
+Host: https://fotoprintart.ru/

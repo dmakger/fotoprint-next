@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd">
+	<url>
+		<loc>https://fotoprintart.ru/</loc>
+		<priority>1.0</priority>
+		<changefreq>daily</changefreq>
+	</url>
+	<url>
+		<loc>https://fotoprintart.ru/catalog/</loc>
+		<priority>0.9</priority>
+		<changefreq>daily</changefreq>
+	</url>
+	<url>
+		<loc>https://bbplace.ru/collection/popular/30/</loc>
+		<priority>0.9</priority>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://bbplace.ru/collection/popular/7/</loc>
+		<priority>1.0</priority>
+		<changefreq>weekly</changefreq>
+	</url>
+</urlset>
