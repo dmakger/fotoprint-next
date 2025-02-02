@@ -2,7 +2,6 @@ import { FC } from "react"
 
 import { ListDirection } from "@/shared/data/list.data";
 import Wrapper1280 from "@/shared/ui/Wrapper/1280/Wrapper1280";
-import { TagAll } from "@/shared/data/tag.data";
 import { WrapperToolbar } from "@/shared/ui/Wrapper/Toolbar/WrapperToolbar";
 import { QueryProduct } from "@/features/Query/Product/ui/QueryProduct";
 import { ProductQueryType } from "@/features/Query/Product/data/product.query.data";

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_Shelf.module.scss'
 
@@ -5,7 +7,6 @@ import { IShelf } from "../model/shelf.model";
 import { Button, ButtonVariant } from "../../Button";
 import { Slider } from "../../Slider/Slider";
 import { WrapperBlock } from '../../Wrapper/Block/ui/WrapperBlock';
-import Link from 'next/link';
 import { ButtonColor, ButtonSize } from '../../Button/data/button.data';
 
 
@@ -36,7 +37,8 @@ export const Shelf = <T extends any>({
                             title={hrefTitle ?? "Посмотреть"}
                             variant={ButtonVariant.Content}
                             size={ButtonSize.Small} 
-                            color={ButtonColor.Tertiary} />
+                            color={ButtonColor.Tertiary}  
+                            classNameLink={cl.show}/>
                 )}
             </div>
             <Slider {...sliderParams}

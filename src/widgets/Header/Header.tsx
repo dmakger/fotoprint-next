@@ -9,6 +9,7 @@ import { Button, ButtonVariant } from "@/shared/ui/Button";
 import { ButtonColor, ButtonSize } from "@/shared/ui/Button/data/button.data";
 import { SEARCH_BLACK__ICON } from "@/shared/data/icon/search.data.icon";
 import { TagAll } from "@/shared/data/tag.data";
+import { CatalogButton } from "./components/CatalogButton/CatalogButton";
 
 interface HeaderProps {}
 
@@ -25,12 +26,7 @@ export const Header:FC<HeaderProps> = () => {
             </div>
             <LogoText />
             <div className={cl.right}>
-                <Button title="Каталог" 
-                        href={MAIN_PAGES.Catalog} 
-                        variant={ButtonVariant.ToFill}
-                        color={ButtonColor.Without} 
-                        size={ButtonSize.Medium}
-                        className={cl.catalog}/>
+                <CatalogButton />
             </div>
         </Wrapper1280>
     )

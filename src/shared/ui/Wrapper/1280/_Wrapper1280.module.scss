@@ -4,6 +4,10 @@
     padding-left: 16px;
     padding-right: 16px;
 
+    @media (width <= 520px) {
+        padding: 0;
+    }
+
     .content {
         display: flex;
         flex-direction: column;

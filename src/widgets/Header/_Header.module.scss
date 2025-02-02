@@ -6,6 +6,10 @@
     position: sticky;
     top: 0;
     z-index: 100;
+
+    @media (max-width: 520px) {
+        padding: 10px !important;
+    }
 }
 
 .wrapperContent {
@@ -27,9 +31,4 @@
 }
 .right {
     right: 0;
-}
-
-.catalog:hover {
-    background-color: var(--secondary) !important;
-    color: var(--on-primary) !important;
 }

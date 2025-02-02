@@ -29,3 +29,26 @@
         }
     }
 }
+
+
+@media (max-width: 520px) {
+    .shelfContent {
+        gap: 10px;
+    }
+
+    .title {
+        padding-left: 0 !important;
+
+        &.isLink {
+            border-bottom: 4px solid var(--foreground-1);
+
+            &:hover {
+                border-color: var(--primary);
+            }
+        }
+    }
+
+    .show {
+        display: none !important;
+    }
+}
