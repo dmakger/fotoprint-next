@@ -10,6 +10,10 @@
     }
 }
 
+.notShow {
+  background-color: var(--empty) !important;
+}
+
 // >>> ========={ / DIRECTION \ }========= >>>
 .row {
     padding: 30px 10px; 

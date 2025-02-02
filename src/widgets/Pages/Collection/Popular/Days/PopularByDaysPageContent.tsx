@@ -29,7 +29,8 @@ export const PopularByDaysPageContent:FC<PopularByDaysPageContentProps> = ({
             <QueryProduct 
                 requestType={ProductQueryType.Popular}
                 props={{days}}
-                direction={ListDirection.Wrap}/>
+                direction={ListDirection.Wrap}
+                hasPagination={true} baseLink={MAIN_PAGES.CollectionPopularByDays(days)}/>
         </WrapperToolbar>
     )
 }

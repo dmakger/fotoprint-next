@@ -28,7 +28,7 @@ export const SmartTitle:FC<SmartTitleProps> = ({
 
     // FUNC
     const getTitle = () => {
-        return search ?? defaultTitle
+        return search ? `${defaultTitle}: ${search}` : defaultTitle
     }
 
     return (

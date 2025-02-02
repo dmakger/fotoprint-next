@@ -23,7 +23,7 @@ const PopularCollectionPage: FC<PopularByDaysPageProps> = ({ params }) => {
 	}
 	
 	return (
-		<Wrapper1280 tag={TagAll.Main}>
+		<Wrapper1280>
 			<PopularByDaysPageContent days={days as IProductPopularRequest["days"]}/>
 		</Wrapper1280>
   );

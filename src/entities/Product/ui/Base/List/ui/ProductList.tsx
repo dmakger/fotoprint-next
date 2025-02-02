@@ -16,15 +16,25 @@ interface ProductListProps extends IListTop<IProduct>{
     componentProps?: IProductRequest
 }
 
-export const ProductList:FC<ProductListProps> = ({direction, className, ...rest}) => {    
+export const ProductList:FC<ProductListProps> = ({
+    items,
+    direction, 
+    className,
+    classNameItem,
+    gap, 
+    ...rest
+}) => {    
     return (
         <List {...rest} 
+            items={items}
             direction={direction} 
             component={ProductItem} 
-            className={cls(direction === ListDirection.Wrap ? cl.wrap : '', className)}
+            className={cls(direction === ListDirection.Wrap ? cl.grid : '', className)}
             componentLoading={ProductSkeleton}
             loadingProps={{
                 length: 8
-            }}/>
+            }}
+            gap={gap ?? 10}
+            classNameItem={cls(cl.item, classNameItem)}/>
     )
 }

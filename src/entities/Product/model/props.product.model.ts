@@ -1,4 +1,4 @@
-import { IQuery } from "@/shared/model/query.model"
+import { IQueryResponse } from "@/shared/model/query.model"
 import { IProduct } from "./product.model"
 import { IRequest } from "@/shared/model/request.model"
 
@@ -29,6 +29,6 @@ export type IProductCoreRequest = (
 
 
 // QUERY
-export interface IProductQuery extends IQuery {
+export interface IProductQuery extends IQueryResponse {
     results: IProduct[]
 }

@@ -2,27 +2,24 @@
 
 import { FC, useState } from "react"
 
-import { cls } from '@/shared/lib/classes.lib';
-import cl from './_QueryProduct.module.scss';
-
-import { ListDirection } from "@/shared/data/list.data";
-import { ProductAPI } from "@/entities/Product/api/product.api";
-import { IProductCoreRequest, IProductPopularRequest, IProductRequest } from "@/entities/Product/model/props.product.model";
+import { IProductCoreRequest } from "@/entities/Product/model/props.product.model";
 import { ProductList } from "@/entities/Product/ui/Base/List/ui/ProductList";
 import { DefaultBackendParams } from "@/shared/data/params.data";
-import SuspenseL from "@/shared/ui/SuspenseL/SuspenseL";
 import { ProductQueryType, productQueryHandlers } from "../data/product.query.data";
+import { IQueryProps } from "@/shared/model/query.model";
+import { Query } from "@/shared/ui/Query/ui/Query";
 
-interface QueryProductProps{
+
+interface QueryProductProps extends IQueryProps{
     requestType: ProductQueryType;
-    direction?: ListDirection;
     props?: IProductCoreRequest;
-    className?: string,
 }
 
 export const QueryProduct:FC<QueryProductProps> = ({
     requestType, 
     props,
+    hasPagination=true,
+    baseLink,
     ...rest
 }) => {
     // STATE
@@ -37,17 +34,19 @@ export const QueryProduct:FC<QueryProductProps> = ({
         page: pageNumber, 
         q: search,
     });
-    
-
 
     return (
-        <SuspenseL>
-            <SuspenseL.Query setPageNumber={setPageNumber} setLimit={setLimit} setSearch={setSearch}>
-                <ProductList items={productQuery?.results ?? []} 
-                             isLoading={isLoading} 
-                             isScrollToTopNeeded={true}
-                             {...rest} />
-            </SuspenseL.Query>
-        </SuspenseL>
+        <Query countPage={productQuery?.countPage}
+            setPageNumber={setPageNumber}
+            setLimit={setLimit}
+            setSearch={setSearch}
+            hasPagination={hasPagination}
+            baseLink={baseLink}
+        >
+            <ProductList items={productQuery?.results ?? []} 
+                            isLoading={isLoading} 
+                            isScrollToTopNeeded={true}
+                            {...rest} />
+        </Query>
     )
 }

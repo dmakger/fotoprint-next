@@ -13,7 +13,8 @@ import { IButton } from '../model/button.model'
 interface IButtonProps extends IButton {}
 
 export const Button = ({
-    variant = ButtonVariant.Fill, color=ButtonColor.Primary, type = ButtonType.Button, size=ButtonSize.DefaultSize, isRounded=true,
+    variant = ButtonVariant.Fill, color=ButtonColor.Primary, type = ButtonType.Button, size=ButtonSize.DefaultSize, 
+    isRounded=true,
     ref,
     title, href,
     beforeImage, beforeProps, afterImage, afterProps, 

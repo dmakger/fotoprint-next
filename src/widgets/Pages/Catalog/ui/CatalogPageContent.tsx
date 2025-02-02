@@ -16,12 +16,12 @@ interface CatalogPageContentProps{
 export const CatalogPageContent:FC<CatalogPageContentProps> = ({className}) => {
 
     return (
-        <Wrapper1280 tag={TagAll.Main}>
+        <Wrapper1280>
             <WrapperToolbar title="Каталог" searchLink={MAIN_PAGES.Catalog}>
-                {/* <ProductListContainer direction={ListDirection.Wrap}/> */}
                 <QueryProduct 
                     requestType={ProductQueryType.Base} 
-                    direction={ListDirection.Wrap}/>
+                    direction={ListDirection.Wrap}
+                    hasPagination={true} baseLink={MAIN_PAGES.Catalog} />
             </WrapperToolbar>
         </Wrapper1280>
     )

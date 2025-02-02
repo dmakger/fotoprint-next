@@ -49,7 +49,13 @@ export const List = <T extends any>({
     isScrollToTopNeeded && useScrollToTop();
 
     return (
-        <div ref={listRef} style={{ gap: `${gap}px` }} className={cls(cl.list, cl[direction], className)} {...rest}>
+        <div ref={listRef} 
+            style={{ 
+                gap: gap ? `${gap}px` : undefined,
+            }} 
+            className={cls(cl.list, cl[direction], className)} 
+            {...rest}
+        >
             {(isLoading && !!ListItemComponentLoading) ? (
                 <>
                     {Array.from({ length: lengthLoading ?? 5 }).map((_, index) => (

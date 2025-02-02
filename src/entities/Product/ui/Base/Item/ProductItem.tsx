@@ -2,7 +2,8 @@ import { FC } from "react"
 import Link from "next/link";
 
 import { cls } from '@/shared/lib/classes.lib';
-import cl from './_ProductItem.module.scss'
+import cl from './_ProductItem.module.scss';
+
 import { IListItem } from "@/shared/model/list.model";
 import { IProduct } from "../../../model/product.model";
 import { ImageAPI } from "@/shared/ui/Image/ui/API/ImageAPI";

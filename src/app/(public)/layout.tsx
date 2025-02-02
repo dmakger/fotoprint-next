@@ -9,7 +9,9 @@ export default function Layout({ children }: PropsWithChildren<unknown>) {
     return (
         <WrapperGap>
             <Header />
-            {children}
+            <main>
+                {children}
+            </main>
             <Footer />
         </WrapperGap>
     )

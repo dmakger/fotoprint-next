@@ -5,7 +5,7 @@ import { PopularProductShelf } from "@/widgets/Shelf/Product/Popular/ui/PopularP
 
 export default function Home() {
 	return (
-		<Wrapper1280 tag={TagAll.Main}>
+		<Wrapper1280>
 			<PopularProductShelf days={7} />
 			<PopularProductShelf days={30} />
 		</Wrapper1280>
