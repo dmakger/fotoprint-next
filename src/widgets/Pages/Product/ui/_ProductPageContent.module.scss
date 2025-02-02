@@ -63,3 +63,10 @@
         }
     }
 }
+
+
+@media (max-width: 520px) {
+    .title {
+        font-size: var(--fs-lg) !important;
+    }
+}

@@ -5,3 +5,11 @@
 
     }
 }
+
+@media (max-width: 520px) {
+    .wrapper {
+        .title {
+            font-size: var(--fs-lg);
+        }
+    }
+}

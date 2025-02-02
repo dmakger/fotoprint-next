@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect, useState } from "react"
+import { FC, useState } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_SmartTitle.module.scss';
@@ -10,7 +10,6 @@ import { Txt } from "../../Txt/ui/Txt";
 import { TxtType } from "../../Txt/model/txt.model";
 import { SuspenseLAny } from "../../SuspenseL/Any/SuspenseLAny";
 import SuspenseL from "../../SuspenseL/SuspenseL";
-import { ISuspenseLItem } from "@/entities/Product/model/suspenseL.model";
 import { BACKEND_PARAMS } from "@/config/params/backend.params.config";
 import { getListWithout } from "@/shared/lib/list.lib";
 

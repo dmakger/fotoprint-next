@@ -39,6 +39,7 @@ export const ProductPageContent: FC<ProductPageContentProps> = ({ className }) =
                 <Price price={price} variant={PriceVariant.Text} />
                 <Button title={"Добавить в корзину"} 
                         color={ButtonColor.Secondary} size={ButtonSize.Small} isRounded={false}
+                        disabled={true}
                         className={cl.addCart} />
             </div>
         </WrapperBlock>

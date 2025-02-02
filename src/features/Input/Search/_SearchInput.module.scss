@@ -1,7 +1,7 @@
 .search { 
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
     border: 3px solid var(--foreground-1);
     border-radius: 10px;
     // max-height: 48px;
@@ -21,7 +21,7 @@
     .right {
 		background-color: var(--foreground-1);
 		border-radius: 0 5px 5px 0;
-		height: 100%;
+		height: auto;
 		display: flex;
 		padding-left: 3px;
 

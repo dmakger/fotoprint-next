@@ -131,6 +131,11 @@
   margin: 0;
   font-size: 16px;
 
+  /* Стили скроллбара для Firefox */
+  scrollbar-width: thin; /* "auto" или "thin" */
+  scrollbar-color: var(--gray-1) transparent; /* Цвет ползунка и трека */
+
+
   &::-webkit-scrollbar {
     background-color: transparent;
     width: 7px;
