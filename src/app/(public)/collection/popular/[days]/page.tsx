@@ -11,7 +11,6 @@ interface PopularByDaysPageProps {
   }
   
 const PopularCollectionPage: FC<PopularByDaysPageProps> = ({ params }) => {
-	console.log('qwe params', params)
 	// Преобразуем days в число
 	const days = Number(params.days);
 

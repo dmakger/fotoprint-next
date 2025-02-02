@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react"
+import { FC, forwardRef, ReactNode, Ref } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_WrapperBlock.module.scss'
@@ -16,18 +16,20 @@ interface WrapperBlockProps{
     classNameContent?: string,
 }
 
-export const WrapperBlock:FC<WrapperBlockProps> = ({
-    variant=WrapperBlockVariant.Wide,
-    size=WrapperBlockSize.Small,
-    title,
+export const WrapperBlock = forwardRef<HTMLDivElement, WrapperBlockProps>((
+    {
+        variant=WrapperBlockVariant.Wide,
+        size=WrapperBlockSize.Small,
+        title,
 
-    children,
-    className, 
-    classNameTitle,
-    classNameContent,
-}) => {
+        children,
+        className, 
+        classNameTitle,
+        classNameContent,
+    }, refOut: Ref<HTMLDivElement>
+) => {
     return (
-        <div className={cls(cl.wrapper, cl[variant], cl[size], className)}>
+        <div ref={refOut} className={cls(cl.wrapper, cl[variant], cl[size], className)}>
             {title && (
                 <h2 className={cls(cl.title, classNameTitle)}>{title}</h2>
             )}
@@ -36,4 +38,4 @@ export const WrapperBlock:FC<WrapperBlockProps> = ({
             </div>
         </div>
     )
-}
+});

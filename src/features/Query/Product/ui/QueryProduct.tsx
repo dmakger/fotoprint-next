@@ -30,8 +30,6 @@ export const QueryProduct:FC<QueryProductProps> = ({
     const [limit, setLimit] = useState<number>(DefaultBackendParams.Limit)
     const [search, setSearch] = useState<string | undefined>()
     
-    console.log('qwe search', search)
-
     // API
     const { data: productQuery, isLoading } = productQueryHandlers[requestType]({
         ...props, 
@@ -45,7 +43,10 @@ export const QueryProduct:FC<QueryProductProps> = ({
     return (
         <SuspenseL>
             <SuspenseL.Query setPageNumber={setPageNumber} setLimit={setLimit} setSearch={setSearch}>
-                <ProductList items={productQuery?.results ?? []} isLoading={isLoading} {...rest} />
+                <ProductList items={productQuery?.results ?? []} 
+                             isLoading={isLoading} 
+                             isScrollToTopNeeded={true}
+                             {...rest} />
             </SuspenseL.Query>
         </SuspenseL>
     )

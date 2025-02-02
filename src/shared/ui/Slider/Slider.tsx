@@ -61,7 +61,6 @@ export const Slider = <T extends any>({
     const [visibleIndex, setVisibleIndex] = useState(activeIndex);
     const [pagingAmount, setPagingAmount] = useState(pagingOutAmount);
 
-    // console.log('qwe pagingAmount', pagingAmount,)
     
     // Swipe State
     const [startX, setStartX] = useState(0);

@@ -21,7 +21,7 @@ export const List = <T extends any>({
     listRef,
     component: ListItemComponent,
     componentProps,
-    isScrollToTopNeeded = true,
+    isScrollToTopNeeded = false,
     direction = DEFAULT__LIST_DIRECTION,
     activeId,
     activeIndex,

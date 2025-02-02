@@ -74,6 +74,7 @@ export const ProductPageContentClient: FC<ProductPageContentClientProps> = ({
                 <ProductFormBlock 
                     productForm={it}
                     setPrice={setPrice} 
+                    onlyUnique={true}
                     key={it.id} />
             ))}
 

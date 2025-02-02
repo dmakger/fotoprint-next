@@ -50,7 +50,8 @@ export const ProductForm: FC<ProductFormProps> = ({ forms, onClick, className })
         setSelectedItems(updatedSelectedItems);
     };
 
-    const handleOnClickAdd = () => {
+    const handleOnClickAdd = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
         if (onClick)
             onClick(selectedItems)
     }

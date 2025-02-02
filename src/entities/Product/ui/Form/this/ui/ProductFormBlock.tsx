@@ -1,6 +1,6 @@
 "use client"
 
-import { Dispatch, FC, SetStateAction, useState } from "react"
+import { Dispatch, FC, SetStateAction, useRef, useState } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_ProductFormBlock.module.scss'
@@ -36,8 +36,10 @@ export const ProductFormBlock:FC<ProductFormBlockProps> = ({
     const [addedOptionList, setAddedOptionList] = useState<IOption[]>([])
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
+
     // HANDLE
-    const handleOnClickAdd = () => {
+    const handleOnClickAdd = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
         setShowForm(true)
     }
 
