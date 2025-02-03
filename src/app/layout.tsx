@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geologica } from "next/font/google";
+import { Montserrat } from "next/font/google";
+// import { Geologica } from "next/font/google";
 import Script from "next/script";
 
 import { cls } from "@/shared/lib/classes.lib";
@@ -9,10 +10,10 @@ import { Providers } from "./_providers/app-provider";
 import { DESCRIPTION__BASE, SITE_NAME } from "@/shared/data/seo.data";
 
 
-const geologica = Geologica({ 
+const montserrat = Montserrat({ 
 	subsets: ["latin", "cyrillic"], 
-	variable: '--geologica-font',
-	display: "swap",
+	variable: '--montserrat-font',
+	// display: "swap",
 });
 
 
@@ -30,14 +31,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="ru" className={cls(geologica.className)}>
+		<html lang="ru">
 			<link rel="icon" type="image/png" sizes="any" href="/favicon.ico" />
 			{/* <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" /> */}
 
             <link rel="manifest" href="/manifest.json" />
 			<meta name="application-name" content={SITE_NAME} />
 
-			<body>
+			<body className={montserrat.className}>
 				{/* Yandex.Metrika counter */}
                 <Script id="yandex-metrika-init" strategy="afterInteractive">
                     {`

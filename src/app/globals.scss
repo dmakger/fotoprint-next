@@ -95,8 +95,11 @@
   --error: var(--red);
 
 
-  // ===={ SIZES }====
+  // ===={ FONT }====
   
+  //FONT-FAMILY
+  --font-family: "Montserrat", sans-serif;
+
   //FONT-SIZE
   // 12px
   --fs-xs: 0.75rem;
@@ -168,8 +171,9 @@ body {
   height: 100vh;
   // overflow-x: hidden;
   font-weight: var(--fw-regular);
+  font-family: var(--font-family);
   
-  input {
+  input, textarea {
     color: var(--foreground-1);
     font-family: inherit;
     // font-weight: var(--fw-semi-bold);
