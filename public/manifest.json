@@ -1,0 +1,12 @@
+{
+    "name": "Фотопринт",
+    "short_name": "Фотопринт",
+    "icons": [
+        
+    ],
+    "theme_color": "#2ED573",
+    "background_color": "#2ED573",
+    "start_url": "https://fotoprintart.ru",
+    "display": "standalone",
+    "orientation": "portrait"
+}
