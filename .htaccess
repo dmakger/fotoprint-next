@@ -1,0 +1,5 @@
+PassengerNodejs /home/d/dmakger/.local/bin/node
+PassengerAppRoot /home/d/dmakger/fotoprintart.ru
+PassengerAppType node
+PassengerStartupFile index.js
+PassengerFriendlyErrorPages on
