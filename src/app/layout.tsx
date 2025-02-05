@@ -40,6 +40,7 @@ export default function RootLayout({
 
 			<body className={montserrat.className}>
 				{/* Yandex.Metrika counter */}
+				{/* OLD: 99766096 */}
                 <Script id="yandex-metrika-init" strategy="afterInteractive">
                     {`
                     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -48,7 +49,7 @@ export default function RootLayout({
                     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
                     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-                    ym(99766096, "init", {
+                    ym(99812026, "init", {
                             clickmap:true,
                             trackLinks:true,
                             accurateTrackBounce:true,
@@ -61,7 +62,7 @@ export default function RootLayout({
 				{/* YANDEX Metrika noscript */}
                 <noscript>
                     <div>
-                        <img src="https://mc.yandex.ru/watch/99766096" style={{ position: 'absolute', left: '-9999px' }} alt="" />\
+                        <img src="https://mc.yandex.ru/watch/99812026" style={{ position: 'absolute', left: '-9999px' }} alt="" />\
                     </div>
                 </noscript>
                 {/* /YANDEX Metrika noscript */}
