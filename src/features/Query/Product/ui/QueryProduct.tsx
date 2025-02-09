@@ -35,8 +35,6 @@ export const QueryProduct:FC<QueryProductProps> = ({
         q: search,
     });
 
-    console.log('qwe isLoading', isLoading, apiRest)
-
     return (
         <Query countPage={productQuery?.countPage}
             setPageNumber={setPageNumber}
