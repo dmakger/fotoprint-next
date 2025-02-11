@@ -32,7 +32,7 @@ export const ProductList:FC<ProductListProps> = ({
             className={cls(direction === ListDirection.Wrap ? cl.grid : '', className)}
             componentLoading={ProductSkeleton}
             loadingProps={{
-                length: 8
+                length: 10
             }}
             gap={gap ?? 10}
             classNameItem={cls(cl.item, classNameItem)}/>

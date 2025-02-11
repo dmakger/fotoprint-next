@@ -1,9 +1,8 @@
 "use client"
 
 import { FC, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
-import { cls } from '@/shared/lib/classes.lib';
 import cl from './_Pagination.module.scss';
 
 import { HandleSize } from "../../Handle/Size/HandleSize";
@@ -25,6 +24,7 @@ export const Pagination:FC<PaginationProps> = ({
 }) => {
         // ROUTER
         const router = useRouter()
+        const searchParams = useSearchParams();
     
         // STATE
         const [amountCore, setAmountCore] = useState(1)
@@ -44,8 +44,10 @@ export const Pagination:FC<PaginationProps> = ({
         }, [is768])
     
         // ON CLICK
-        const handleOnClickItem = (n: number) => {        
-            router.push(`${baseLink}?${BACKEND_PARAMS.Page}=${n}`)
+        const handleOnClickItem = (n: number) => {     
+            const params = new URLSearchParams(searchParams.toString())
+            params.set(BACKEND_PARAMS.Page, `${n}`)
+            router.push(`${baseLink}?${params.toString()}`);    
         }
     
         return (

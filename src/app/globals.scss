@@ -176,7 +176,7 @@ body {
   input, textarea {
     color: var(--foreground-1);
     font-family: inherit;
-    // font-weight: var(--fw-semi-bold);
+    font-weight: var(--fw-semi-bold);
 
     &::placeholder {
       color: var(--foreground-4);

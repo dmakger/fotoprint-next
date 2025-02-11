@@ -28,7 +28,7 @@ export const QueryProduct:FC<QueryProductProps> = ({
     const [search, setSearch] = useState<string | undefined>()
     
     // API
-    const { data: productQuery, isLoading } = productQueryHandlers[requestType]({
+    const { data: productQuery, isFetching: isLoading, ...apiRest } = productQueryHandlers[requestType]({
         ...props, 
         limit, 
         page: pageNumber, 
@@ -42,6 +42,7 @@ export const QueryProduct:FC<QueryProductProps> = ({
             setSearch={setSearch}
             hasPagination={hasPagination}
             baseLink={baseLink}
+            isLoading={isLoading}
         >
             <ProductList items={productQuery?.results ?? []} 
                             isLoading={isLoading} 

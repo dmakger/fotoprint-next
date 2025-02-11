@@ -29,5 +29,6 @@ export interface IQuery extends IQueryCore{
  */
 export interface IQueryCore {
     hasPagination?: boolean;
-    baseLink?: string
+    baseLink?: string;
+    isLoading?: boolean;
 }
